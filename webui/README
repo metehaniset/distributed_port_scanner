@@ -1,4 +1,7 @@
 flask db init
 flask db migrate -m "users table"
-flask db migrate -m "scans table"
+flask db upgrade
+
+
+flask db migrate -m "new fields in user model"
 flask db upgrade

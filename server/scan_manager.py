@@ -34,7 +34,7 @@ class ScanManager:
 
     def send_to_scanners(self, host_string='127.0.0.1', port_string='1000-2000'):
         if not self._check_port_string(port_string):
-            return False
+            return None
 
         scan_id = str(uuid.uuid4())
         host_list = ipaddress.IPv4Network(host_string)
@@ -50,6 +50,8 @@ class ScanManager:
         message = {'type': 'work_order', 'scan_id': scan_id, 'data': work}
         self.queue.publish('work_order', message)
 
+        return scan_id
+
     def get_results(self):
         pass
 
@@ -57,5 +59,5 @@ class ScanManager:
         pass
 
 
-sm = ScanManager()
-sm.send_to_scanners(host_string='192.168.1.0/24', port_string='2379')
+# sm = ScanManager()
+# sm.send_to_scanners(host_string='192.168.1.0/24', port_string='2379')

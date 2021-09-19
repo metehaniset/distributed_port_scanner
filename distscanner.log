@@ -782,3 +782,48 @@ TypeError: Object of type UUID is not JSON serializable
 2021-09-19 00:21:37.535 | DEBUG | New work_result captured 
 2021-09-19 00:21:38.541 | DEBUG | New work accepted 
 2021-09-19 00:21:38.542 | DEBUG | New work_result captured 
+2021-09-19 03:23:46.633 | INFO |  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-09-19 03:23:50.928 | INFO | 127.0.0.1 - - [19/Sep/2021 03:23:50] "GET / HTTP/1.1" 200 -
+2021-09-19 03:23:53.370 | INFO | 127.0.0.1 - - [19/Sep/2021 03:23:53] "GET /user/admin HTTP/1.1" 200 -
+2021-09-19 03:23:54.487 | INFO | 127.0.0.1 - - [19/Sep/2021 03:23:54] "GET /index HTTP/1.1" 200 -
+2021-09-19 03:23:58.067 | ERROR | Exception on /start_scan [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/flask/app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/dist-packages/flask/app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/dist-packages/flask/app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/dist-packages/flask/app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/usr/local/lib/python3.8/dist-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/app/webui/app/routes.py", line 96, in start_scan
+    form.username.data = ''
+AttributeError: 'StartScanForm' object has no attribute 'username'
+2021-09-19 03:23:58.070 | INFO | 127.0.0.1 - - [19/Sep/2021 03:23:58] "[35m[1mGET /start_scan HTTP/1.1[0m" 500 -
+2021-09-19 03:24:20.788 | INFO |  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-09-19 03:24:28.456 | INFO | 127.0.0.1 - - [19/Sep/2021 03:24:28] "GET /start_scan HTTP/1.1" 200 -
+2021-09-19 03:24:28.508 | INFO | 127.0.0.1 - - [19/Sep/2021 03:24:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2021-09-19 03:24:42.009 | DEBUG | New work accepted 
+2021-09-19 03:24:42.021 | INFO | 127.0.0.1 - - [19/Sep/2021 03:24:42] "[32mPOST /start_scan HTTP/1.1[0m" 302 -
+2021-09-19 03:24:42.029 | INFO | 127.0.0.1 - - [19/Sep/2021 03:24:42] "GET /start_scan HTTP/1.1" 200 -
+2021-09-19 03:25:21.762 | INFO | 127.0.0.1 - - [19/Sep/2021 03:25:21] "GET /user/admin HTTP/1.1" 200 -
+2021-09-19 03:25:23.532 | INFO | 127.0.0.1 - - [19/Sep/2021 03:25:23] "GET /index HTTP/1.1" 200 -
+2021-09-19 03:25:27.178 | INFO | 127.0.0.1 - - [19/Sep/2021 03:25:27] "[33mGET /scan HTTP/1.1[0m" 404 -
+2021-09-19 03:25:30.988 | INFO | 127.0.0.1 - - [19/Sep/2021 03:25:30] "[33mGET /scans HTTP/1.1[0m" 404 -
+2021-09-19 03:25:34.988 | INFO | 127.0.0.1 - - [19/Sep/2021 03:25:34] "[33mGET /scan_list HTTP/1.1[0m" 404 -
+2021-09-19 03:26:02.140 | DEBUG | New work accepted 
+2021-09-19 03:26:02.142 | DEBUG | New work_result captured 
+2021-09-19 03:27:21.926 | DEBUG | New work accepted 
+2021-09-19 03:27:21.931 | DEBUG | New work_result captured 
+2021-09-19 03:28:42.059 | DEBUG | New work accepted 
+2021-09-19 03:28:42.060 | DEBUG | New work_result captured 
+2021-09-19 03:29:47.237 | INFO |  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-09-19 03:29:51.395 | INFO | 127.0.0.1 - - [19/Sep/2021 03:29:51] "GET /scan_list HTTP/1.1" 200 -
+2021-09-19 03:30:02.181 | DEBUG | New work_result captured 
+2021-09-19 03:30:02.181 | DEBUG | New work accepted 
+2021-09-19 03:30:04.064 | INFO | 127.0.0.1 - - [19/Sep/2021 03:30:04] "[33mGET /scan/2c98fd696499 HTTP/1.1[0m" 404 -
+2021-09-19 03:30:10.197 | INFO | 127.0.0.1 - - [19/Sep/2021 03:30:10] "GET /scan/9666b652-d082-4d72-b26b-2c98fd696499 HTTP/1.1" 200 -
+2021-09-19 03:31:22.312 | DEBUG | New work accepted 
+2021-09-19 03:31:22.315 | DEBUG | New work_result captured 

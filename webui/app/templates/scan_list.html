@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for scan in scans %}
+    <div><p>{{ scan.work_id }} {{ scan.ip }} {{ scan.port }}</p></div>
+    {% endfor %}
+{% endblock %}
