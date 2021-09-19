@@ -87,13 +87,14 @@ def start_scan():
     form = StartScanForm()
     if form.validate_on_submit():
         sm = ScanManager()
-        work_id = sm.send_to_scanners(host_string=form.ip.data, port_string=form.port.data)
-        print(work_id)
-        if work_id is not None:
-            scan = Scan(work_id=work_id, ip=form.ip.data, port=form.port.data, owner=current_user)
+        result = sm.send_to_scanners(host_string=form.ip.data, port_string=form.port.data)
+        print(result)
+        if result is not None:
+            scan = Scan(work_id=result['work_id'], ip=form.ip.data, port=form.port.data,
+                        work_count=result['work_count'], owner=current_user)
             db.session.add(scan)
             db.session.commit()
-            flash('Scan is started with work_id: ' + str(work_id))
+            flash('Scan is started with work_id: ' + result['work_id'] + ' work_count: ' + str(result['work_count']))
         else:
             flash('Unkown parameters')
 

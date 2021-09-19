@@ -54,7 +54,7 @@ class QueueHandler:
             except KeyboardInterrupt:
                 self.channel.stop_consuming()
                 self._conn.close()
-                logger.info('Rabbitmq listener exiting gracefully')
+                logger.debug('Rabbitmq listener exiting gracefully')
                 sys.exit(0)
             except (pika.exceptions.StreamLostError,
                     pika.exceptions.ConnectionClosed,
@@ -65,7 +65,8 @@ class QueueHandler:
                 continue
             except Exception as e:
                 logger.exception('Exception while trying to listen', queue_name, routing_key)
-                break
+                time.sleep(2)
+                continue
 
     def publish(self, routing_key, message):
         while True:

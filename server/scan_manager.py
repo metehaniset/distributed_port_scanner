@@ -36,21 +36,25 @@ class ScanManager:
         if not self._check_port_string(port_string):
             return None
 
-        scan_id = str(uuid.uuid4())
+        work_id = str(uuid.uuid4())
         host_list = ipaddress.IPv4Network(host_string)
         work = []
+        work_count = 0
         for ip in host_list:
             work.append({'host': str(ip), 'port_string': port_string})
             if len(work) == 8:    # split it 8 host per work
-                message = {'type': 'work_order', 'scan_id': scan_id, 'data': work}
+                message = {'type': 'work_order', 'work_id': work_id, 'data': work}
                 self.queue.publish('work_order', message)
                 work = []
+                work_count += 1
 
         # push remaining work to queue
-        message = {'type': 'work_order', 'scan_id': scan_id, 'data': work}
-        self.queue.publish('work_order', message)
+        if len(work) > 0:
+            message = {'type': 'work_order', 'work_id': work_id, 'data': work}
+            self.queue.publish('work_order', message)
+            work_count += 1
 
-        return scan_id
+        return {'work_id': work_id, 'work_count': work_count}
 
     def get_results(self):
         pass

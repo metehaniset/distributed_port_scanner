@@ -51,7 +51,15 @@ class UglyScanner:
                 socket.setdefaulttimeout(1)
                 result = s.connect_ex((param['host'], port))
                 if result == 0:
-                    param['open_ports'].append(port)
+                    param['open_ports'].append({
+                        'port': port, 'protocol': 'tcp', 'reason': 'syn-ack',
+                        'service': {
+                            'name': 'unknown',
+                            'version': 'unknown',
+                            'os-type': 'unknown',
+                        }
+                        # bla bla...
+                    })
                 s.close()
         except Exception as e:
             logger.exception('Exception in _check_if_open', e)
@@ -68,13 +76,13 @@ class UglyScanner:
                 return
             elif message['type'] == 'work_order':
                 work_order = message['data']
-                scan_id = message['scan_id']
+                work_id = message['work_id']
                 logger.debug('New work accepted')
-                self.scan(scan_id, work_order)
+                self.scan(work_id, work_order)
         except Exception as e:
             logger.exception('exception in execute_order callback')
 
-    def scan(self, scan_id, work_order):
+    def scan(self, work_id, work_order):
         if len(work_order) > 0:
             cpu_count = multiprocessing.cpu_count()
             thread_count = cpu_count if len(work_order) >= cpu_count else len(work_order)
@@ -84,7 +92,7 @@ class UglyScanner:
             pool.close()
             pool.join()
 
-            message = {'type': 'work_order_result', 'scan_id': scan_id, 'data': result}
+            message = {'type': 'work_order_result', 'work_id': work_id, 'data': result}
             # print(message)
             self.queue.publish('work_order_result', message)
 
@@ -95,3 +103,17 @@ us.run()
 
 
 
+"""
+   <port protocol="tcp" portid="22">
+    <state state="open" reason="syn-ack" reason_ttl="53"/>
+    <service name="ssh" product="OpenSSH" version="5.3p1 Debian 3ubuntu7"
+             extrainfo="protocol 2.0" ostype="Linux" method="probed" conf="10">
+     <cpe>cpe:/a:openbsd:openssh:5.3p1</cpe>
+     <cpe>cpe:/o:linux:kernel</cpe>
+    </service>
+    <script id="ssh-hostkey"
+            output="1024 8d:60:f1:7c:ca:b7:3d:0a:d6:67:54:9d:69:d9:b9:dd (DSA)&#xa;
+                    2048 79:f8:09:ac:d4:e2:32:42:10:49:d3:bd:20:82:85:ec (RSA)"/>
+   </port>
+   
+"""

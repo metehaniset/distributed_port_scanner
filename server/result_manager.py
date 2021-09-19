@@ -23,16 +23,17 @@ class ResultManager:
                 return
             elif message['type'] == 'work_order_result':
                 work_order_result = message['data']
-                scan_id = message['scan_id']
+                work_id = message['work_id']
                 logger.debug('New work_result captured')
-                self.process_result(scan_id, work_order_result)
+                self.process_result(work_id, work_order_result)
             else:
                 logger.warning('Unknown message_type:', message['type'])
         except Exception as e:
             logger.exception('exception in execute_order callback')
 
-    def process_result(self, scan_id, work_order_result):
-        print(scan_id, work_order_result)
+    def process_result(self, work_id, work_order_result):
+        print(work_id, work_order_result)
+        # 27b638ed-8e4c-4806-88e3-a06cdf5c7cb9 [{'host': '192.168.1.96', 'open_ports': [{'port': 5672, 'protocol': 'tcp', 'reason': 'syn-ack', 'service': {'name': 'unknown', 'version': 'unknown', 'os-type': 'unknown'}}]}, {'host': '192.168.1.97', 'open_ports': []}, {'host': '192.168.1.98', 'open_ports': []}, {'host': '192.168.1.99', 'open_ports': []}, {'host': '192.168.1.100', 'open_ports': []}, {'host': '192.168.1.101', 'open_ports': []}, {'host': '192.168.1.102', 'open_ports': []}, {'host': '192.168.1.103', 'open_ports': []}]
         pass
 
     def update_db_with_result(self):
