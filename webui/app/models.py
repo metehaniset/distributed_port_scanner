@@ -24,7 +24,7 @@ class Scan(db.Model):
     work_id = db.Column(db.String(128), index=True, unique=True)
     ip = db.Column(db.String(128), index=False)
     port = db.Column(db.String(128), index=False)
-    work_count = db.Column(db.Integer, index=False)
+    ip_count = db.Column(db.Integer, index=False)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.now)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 

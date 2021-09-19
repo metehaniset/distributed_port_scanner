@@ -7,3 +7,6 @@ kubectl get pods
 kubectl apply -f python_rabbit2.yml
 kubectl describe pod python-rabbit2
 
+
+elasticsearch_memory_problem
+sysctl -w vm.max_map_count=262144

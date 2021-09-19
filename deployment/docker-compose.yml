@@ -22,8 +22,8 @@ services:
     networks:
       - hissenet
     environment:
-      TZ: "Europe/Istanbul"
-      discovery: "type=single-node"
+      - xpack.security.enabled=false
+      - discovery.type=single-node
     logging:
       options:
         max-size: 10m
@@ -36,8 +36,7 @@ services:
     networks:
       - hissenet
     environment:
-      TZ: "Europe/Istanbul"
-      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+      ELASTICSEARCH_HOSTS: "http://elasticsearch:9200"
     logging:
       options:
         max-size: 10m

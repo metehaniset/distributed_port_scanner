@@ -5,6 +5,7 @@ from flask_login import current_user, login_user
 from app.models import User
 from app.models import Scan
 from app.forms import StartScanForm
+from app.search import find_all_with_work_id
 from flask_login import logout_user
 from flask_login import login_required
 from flask import request
@@ -64,15 +65,19 @@ def user(username):
     return render_template('user.html', user=user, posts=posts)
 
 
-@app.route('/scan/<work_id>')
+@app.route('/scan_result/<work_id>')
 @login_required
-def scan(work_id):
+def scan_result(work_id):
     scan = Scan.query.filter_by(work_id=work_id).first_or_404()
-    posts = [
-        {'author': user, 'body': 'Test post #1'},
-        {'author': user, 'body': 'Test post #2'}
-    ]
-    return render_template('scan.html', scan=scan)
+    result, hit_count = find_all_with_work_id(work_id)
+
+    result_list = []
+    for hit in result:
+        result_list.append(hit['_source'])
+
+    scan.completed_perc = round(hit_count / scan.ip_count, 2) * 100
+
+    return render_template('scan.html', scan=scan, result=result_list)
 
 
 @app.route('/scan_list')
@@ -81,6 +86,7 @@ def scan_list():
     scans = Scan.query.all()
     return render_template('scan_list.html', scans=scans)
 
+
 @app.route('/start_scan', methods=['GET', 'POST'])
 @login_required
 def start_scan():
@@ -88,13 +94,13 @@ def start_scan():
     if form.validate_on_submit():
         sm = ScanManager()
         result = sm.send_to_scanners(host_string=form.ip.data, port_string=form.port.data)
-        print(result)
+        # print(result)
         if result is not None:
             scan = Scan(work_id=result['work_id'], ip=form.ip.data, port=form.port.data,
-                        work_count=result['work_count'], owner=current_user)
+                        ip_count=result['ip_count'], owner=current_user)
             db.session.add(scan)
             db.session.commit()
-            flash('Scan is started with work_id: ' + result['work_id'] + ' work_count: ' + str(result['work_count']))
+            flash('Scan is started with work_id: ' + result['work_id'] + ' ip_count: ' + str(result['ip_count']))
         else:
             flash('Unkown parameters')
 

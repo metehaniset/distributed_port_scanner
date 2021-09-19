@@ -66,6 +66,7 @@ class UglyScanner:
             pass
 
         del param['port_string']
+        param['completed_time'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
         return param
 
     def work_listener(self, ch, method, properties, body):
@@ -93,7 +94,7 @@ class UglyScanner:
             pool.join()
 
             message = {'type': 'work_order_result', 'work_id': work_id, 'data': result}
-            # print(message)
+            print(message)
             self.queue.publish('work_order_result', message)
 
 

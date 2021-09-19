@@ -3,9 +3,12 @@ from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from elasticsearch import Elasticsearch
+
 
 app = Flask(__name__)
 app.config.from_object(Config)
+app.elasticsearch = Elasticsearch(['elasticsearch'])    # service name on kubernetes is elasticsearch
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)

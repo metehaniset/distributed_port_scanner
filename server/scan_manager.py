@@ -39,22 +39,23 @@ class ScanManager:
         work_id = str(uuid.uuid4())
         host_list = ipaddress.IPv4Network(host_string)
         work = []
-        work_count = 0
+        ip_count = 0
         for ip in host_list:
+            ip_count += 1
             work.append({'host': str(ip), 'port_string': port_string})
             if len(work) == 8:    # split it 8 host per work
                 message = {'type': 'work_order', 'work_id': work_id, 'data': work}
                 self.queue.publish('work_order', message)
+                # print(message)
                 work = []
-                work_count += 1
 
         # push remaining work to queue
         if len(work) > 0:
             message = {'type': 'work_order', 'work_id': work_id, 'data': work}
             self.queue.publish('work_order', message)
-            work_count += 1
+            # print(message)
 
-        return {'work_id': work_id, 'work_count': work_count}
+        return {'work_id': work_id, 'ip_count': ip_count}
 
     def get_results(self):
         pass
