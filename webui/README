@@ -1,0 +1,4 @@
+flask db init
+flask db migrate -m "users table"
+flask db migrate -m "scans table"
+flask db upgrade

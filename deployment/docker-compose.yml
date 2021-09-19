@@ -1,0 +1,25 @@
+version: "3.4"  # compose file version
+services:
+  rabbitmq:
+    image: rabbitmq:3
+    ports:
+      - "5672:5672"
+    restart: unless-stopped
+    networks:
+      - hissenet
+    environment:
+      TZ: "Europe/Istanbul"
+    logging:
+      options:
+        max-size: 10m
+
+networks:
+  hissenet:
+
+volumes:
+  hissevol:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/app'

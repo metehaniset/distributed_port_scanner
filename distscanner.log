@@ -1,0 +1,784 @@
+2021-09-18 23:12:19.454 | ERROR | ['Traceback (most recent call last):\n', '  File "/app/lib/queue_handler.py", line 28, in connect\n    self._conn = pika.BlockingConnection(self._params)\n', '  File "/usr/local/lib/python3.8/dist-packages/pika/adapters/blocking_connection.py", line 360, in __init__\n    self._impl = self._create_connection(parameters, _impl_class)\n', '  File "/usr/local/lib/python3.8/dist-packages/pika/adapters/blocking_connection.py", line 451, in _create_connection\n    raise self._reap_last_connection_workflow_error(error)\n', '  File "/usr/local/lib/python3.8/dist-packages/pika/adapters/utils/selector_ioloop_adapter.py", line 565, in _resolve\n    result = socket.getaddrinfo(self._host, self._port, self._family,\n', '  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo\n    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):\n', 'socket.gaierror: [Errno -3] Temporary failure in name resolution\n', '\nDuring handling of the above exception, another exception occurred:\n\n', 'Traceback (most recent call last):\n', '  File "/app/server/scan_manager.py", line 52, in <module>\n', '  File "/app/server/scan_manager.py", line 12, in __init__\n    self.queue.bind(queue_name=\'distscanner\', routing_key=\'work_order\')\n', '  File "/app/lib/queue_handler.py", line 44, in bind\n    self.connect()\n', '  File "/app/lib/queue_handler.py", line 32, in connect\n    time.sleep(10)\n', 'KeyboardInterrupt\n']
+2021-09-18 23:14:22.951 | ERROR | ['Traceback (most recent call last):\n', '  File "/app/lib/queue_handler.py", line 28, in connect\n    self._conn = pika.BlockingConnection(self._params)\n', '  File "/usr/local/lib/python3.8/dist-packages/pika/adapters/blocking_connection.py", line 360, in __init__\n    self._impl = self._create_connection(parameters, _impl_class)\n', '  File "/usr/local/lib/python3.8/dist-packages/pika/adapters/blocking_connection.py", line 451, in _create_connection\n    raise self._reap_last_connection_workflow_error(error)\n', '  File "/usr/local/lib/python3.8/dist-packages/pika/adapters/utils/selector_ioloop_adapter.py", line 565, in _resolve\n    result = socket.getaddrinfo(self._host, self._port, self._family,\n', '  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo\n    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):\n', 'socket.gaierror: [Errno -3] Temporary failure in name resolution\n', '\nDuring handling of the above exception, another exception occurred:\n\n', 'Traceback (most recent call last):\n', '  File "/app/server/scan_manager.py", line 54, in <module>\n    sm = ScanManager()\n', '  File "/app/server/scan_manager.py", line 13, in __init__\n    self.queue.bind(queue_name=\'distscanner\', routing_key=\'work_order\')\n', '  File "/app/lib/queue_handler.py", line 44, in bind\n    self.connect()\n', '  File "/app/lib/queue_handler.py", line 32, in connect\n    time.sleep(10)\n', 'KeyboardInterrupt\n']
+2021-09-18 23:14:36.509 | ERROR | ['Traceback (most recent call last):\n', '  File "/app/lib/queue_handler.py", line 28, in connect\n    self._conn = pika.BlockingConnection(self._params)\n', '  File "/usr/local/lib/python3.8/dist-packages/pika/adapters/blocking_connection.py", line 360, in __init__\n    self._impl = self._create_connection(parameters, _impl_class)\n', '  File "/usr/local/lib/python3.8/dist-packages/pika/adapters/blocking_connection.py", line 451, in _create_connection\n    raise self._reap_last_connection_workflow_error(error)\n', '  File "/usr/local/lib/python3.8/dist-packages/pika/adapters/utils/selector_ioloop_adapter.py", line 565, in _resolve\n    result = socket.getaddrinfo(self._host, self._port, self._family,\n', '  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo\n    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):\n', 'socket.gaierror: [Errno -3] Temporary failure in name resolution\n', '\nDuring handling of the above exception, another exception occurred:\n\n', 'Traceback (most recent call last):\n', '  File "/app/server/scan_manager.py", line 54, in <module>\n    sm = ScanManager()\n', '  File "/app/server/scan_manager.py", line 13, in __init__\n    self.queue.bind(queue_name=\'distscanner\', routing_key=\'work_order\')\n', '  File "/app/lib/queue_handler.py", line 44, in bind\n    self.connect()\n', '  File "/app/lib/queue_handler.py", line 32, in connect\n    time.sleep(10)\n', 'KeyboardInterrupt\n']
+2021-09-18 23:34:16.702 | ERROR | ['Traceback (most recent call last):\n', '  File "/app/lib/queue_handler.py", line 28, in connect\n    self._conn = pika.BlockingConnection(self._params)\n', '  File "/usr/local/lib/python3.8/dist-packages/pika/adapters/blocking_connection.py", line 360, in __init__\n    self._impl = self._create_connection(parameters, _impl_class)\n', '  File "/usr/local/lib/python3.8/dist-packages/pika/adapters/blocking_connection.py", line 451, in _create_connection\n    raise self._reap_last_connection_workflow_error(error)\n', '  File "/usr/local/lib/python3.8/dist-packages/pika/adapters/utils/selector_ioloop_adapter.py", line 565, in _resolve\n    result = socket.getaddrinfo(self._host, self._port, self._family,\n', '  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo\n    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):\n', 'socket.gaierror: [Errno -3] Temporary failure in name resolution\n', '\nDuring handling of the above exception, another exception occurred:\n\n', 'Traceback (most recent call last):\n', '  File "/app/server/scan_manager.py", line 61, in <module>\n', '  File "/app/server/scan_manager.py", line 12, in __init__\n    self.queue.bind(queue_name=\'distscanner\', routing_key=\'work_order\')\n', '  File "/app/lib/queue_handler.py", line 44, in bind\n    self.connect()\n', '  File "/app/lib/queue_handler.py", line 32, in connect\n    time.sleep(10)\n', 'KeyboardInterrupt\n']
+2021-09-18 23:35:19.638 | ERROR | ['Traceback (most recent call last):\n', '  File "/app/server/scan_manager.py", line 63, in <module>\n    sm.send_to_scanners(host_string=\'10.0.0.0/24\', port_string=\'100-200\')\n', '  File "/app/server/scan_manager.py", line 43, in send_to_scanners\n    work.append({\'host\': str(ip), \'port_string\': int(port_string)})\n', "ValueError: invalid literal for int() with base 10: '100-200'\n"]
+2021-09-18 23:36:15.057 | ERROR | ['Traceback (most recent call last):\n', '  File "/app/server/scan_manager.py", line 62, in <module>\n    sm.send_to_scanners(host_string=\'10.0.0.0/24\', port_string=\'100-200\')\n', '  File "/app/server/scan_manager.py", line 42, in send_to_scanners\n    work.append({\'host\': str(ip), \'port_string\': int(port_string)})\n', "ValueError: invalid literal for int() with base 10: '100-200'\n"]
+2021-09-18 23:41:41.819 | ERROR | exception in execute_order callback 
+Traceback (most recent call last):
+  File "/app/scanners/ugly/ugly_scanner.py", line 67, in work_listener
+    self.scan(work_order)
+  File "/app/scanners/ugly/ugly_scanner.py", line 77, in scan
+    result = pool.map(self.check_if_open, work_order)
+AttributeError: 'UglyScanner' object has no attribute 'check_if_open'
+2021-09-18 23:41:51.507 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-18 23:44:32.455 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-18 23:45:46.561 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-18 23:45:52.802 | INFO | New work accepted 
+2021-09-18 23:46:26.892 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-18 23:46:29.806 | INFO | New work accepted 
+2021-09-18 23:46:48.959 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-18 23:46:55.014 | INFO | New work accepted 
+2021-09-18 23:47:33.596 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-18 23:47:37.486 | INFO | New work accepted 
+2021-09-18 23:47:37.490 | ERROR | exception in execute_order callback 
+Traceback (most recent call last):
+  File "/app/scanners/ugly/ugly_scanner.py", line 74, in work_listener
+    self.scan(work_order)
+  File "/app/scanners/ugly/ugly_scanner.py", line 84, in scan
+    result = pool.map(self._check_if_open, work_order)
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 364, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 771, in get
+    raise self._value
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+  File "/app/scanners/ugly/ugly_scanner.py", line 45, in _check_if_open
+    port_list = self._parse_portstring(param['port_string'])
+  File "/app/scanners/ugly/ugly_scanner.py", line 24, in _parse_portstring
+    plist = list(range(plist[0], plist[1]))
+TypeError: 'str' object cannot be interpreted as an integer
+2021-09-18 23:47:56.547 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-18 23:47:59.329 | INFO | New work accepted 
+2021-09-18 23:47:59.336 | ERROR | exception in execute_order callback 
+Traceback (most recent call last):
+  File "/app/scanners/ugly/ugly_scanner.py", line 74, in work_listener
+    self.scan(work_order)
+  File "/app/scanners/ugly/ugly_scanner.py", line 84, in scan
+    result = pool.map(self._check_if_open, work_order)
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 364, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 771, in get
+    raise self._value
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/usr/lib/python3.8/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+  File "/app/scanners/ugly/ugly_scanner.py", line 45, in _check_if_open
+    port_list = self._parse_portstring(param['port_string'])
+  File "/app/scanners/ugly/ugly_scanner.py", line 24, in _parse_portstring
+    plist = list(int(range(plist[0]), int(plist[1])))
+TypeError: 'str' object cannot be interpreted as an integer
+2021-09-18 23:48:16.145 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-18 23:48:19.188 | INFO | New work accepted 
+2021-09-18 23:49:28.681 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-18 23:49:32.208 | INFO | New work accepted 
+2021-09-18 23:49:33.903 | ERROR | exception in execute_order callback 
+Traceback (most recent call last):
+  File "/app/scanners/ugly/ugly_scanner.py", line 70, in work_listener
+    self.scan(work_order)
+  File "/app/scanners/ugly/ugly_scanner.py", line 84, in scan
+    if r['is_open']:
+KeyError: 'is_open'
+2021-09-18 23:49:43.547 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-18 23:49:46.139 | INFO | New work accepted 
+2021-09-18 23:49:53.640 | INFO | New work accepted 
+2021-09-18 23:50:03.134 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-18 23:50:05.987 | INFO | New work accepted 
+2021-09-18 23:50:42.602 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-18 23:50:46.063 | INFO | New work accepted 
+2021-09-18 23:50:57.157 | INFO | New work accepted 
+2021-09-18 23:51:17.197 | INFO | New work accepted 
+2021-09-18 23:51:18.205 | INFO | New work accepted 
+2021-09-18 23:51:19.212 | INFO | New work accepted 
+2021-09-18 23:51:20.217 | INFO | New work accepted 
+2021-09-18 23:51:21.226 | INFO | New work accepted 
+2021-09-18 23:51:22.233 | INFO | New work accepted 
+2021-09-18 23:51:23.240 | INFO | New work accepted 
+2021-09-18 23:51:24.248 | INFO | New work accepted 
+2021-09-18 23:51:25.255 | INFO | New work accepted 
+2021-09-18 23:51:26.262 | INFO | New work accepted 
+2021-09-18 23:51:27.269 | INFO | New work accepted 
+2021-09-18 23:51:28.276 | INFO | New work accepted 
+2021-09-18 23:51:29.284 | INFO | New work accepted 
+2021-09-18 23:51:30.291 | INFO | New work accepted 
+2021-09-18 23:51:31.297 | INFO | New work accepted 
+2021-09-18 23:51:32.304 | INFO | New work accepted 
+2021-09-18 23:51:33.311 | INFO | New work accepted 
+2021-09-18 23:51:34.318 | INFO | New work accepted 
+2021-09-18 23:51:35.326 | INFO | New work accepted 
+2021-09-18 23:51:36.333 | INFO | New work accepted 
+2021-09-18 23:51:37.340 | INFO | New work accepted 
+2021-09-18 23:51:38.346 | INFO | New work accepted 
+2021-09-18 23:51:39.353 | INFO | New work accepted 
+2021-09-18 23:51:40.360 | INFO | New work accepted 
+2021-09-18 23:51:41.367 | INFO | New work accepted 
+2021-09-18 23:51:42.374 | INFO | New work accepted 
+2021-09-18 23:51:43.380 | INFO | New work accepted 
+2021-09-18 23:51:44.388 | INFO | New work accepted 
+2021-09-18 23:51:45.395 | INFO | New work accepted 
+2021-09-18 23:51:46.402 | INFO | New work accepted 
+2021-09-18 23:51:47.408 | INFO | New work accepted 
+2021-09-18 23:51:48.416 | INFO | New work accepted 
+2021-09-18 23:51:49.422 | INFO | New work accepted 
+2021-09-18 23:52:27.663 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-18 23:52:30.469 | INFO | New work accepted 
+2021-09-18 23:52:42.497 | INFO | New work accepted 
+2021-09-18 23:52:56.622 | INFO | New work accepted 
+2021-09-18 23:52:57.632 | INFO | New work accepted 
+2021-09-18 23:52:58.640 | INFO | New work accepted 
+2021-09-18 23:52:59.646 | INFO | New work accepted 
+2021-09-18 23:53:00.653 | INFO | New work accepted 
+2021-09-18 23:53:01.661 | INFO | New work accepted 
+2021-09-18 23:53:02.668 | INFO | New work accepted 
+2021-09-18 23:53:03.676 | INFO | New work accepted 
+2021-09-18 23:53:04.683 | INFO | New work accepted 
+2021-09-18 23:53:05.691 | INFO | New work accepted 
+2021-09-18 23:53:06.698 | INFO | New work accepted 
+2021-09-18 23:53:07.705 | INFO | New work accepted 
+2021-09-18 23:53:08.711 | INFO | New work accepted 
+2021-09-18 23:53:09.718 | INFO | New work accepted 
+2021-09-18 23:53:10.725 | INFO | New work accepted 
+2021-09-18 23:53:11.733 | INFO | New work accepted 
+2021-09-18 23:53:12.740 | INFO | New work accepted 
+2021-09-18 23:53:13.746 | INFO | New work accepted 
+2021-09-18 23:53:14.752 | INFO | New work accepted 
+2021-09-18 23:53:15.760 | INFO | New work accepted 
+2021-09-18 23:53:16.767 | INFO | New work accepted 
+2021-09-18 23:53:17.773 | INFO | New work accepted 
+2021-09-18 23:53:18.780 | INFO | New work accepted 
+2021-09-18 23:53:19.787 | INFO | New work accepted 
+2021-09-18 23:53:20.795 | INFO | New work accepted 
+2021-09-18 23:53:21.802 | INFO | New work accepted 
+2021-09-18 23:53:22.809 | INFO | New work accepted 
+2021-09-18 23:53:23.816 | INFO | New work accepted 
+2021-09-18 23:53:24.823 | INFO | New work accepted 
+2021-09-18 23:53:25.830 | INFO | New work accepted 
+2021-09-18 23:53:26.837 | INFO | New work accepted 
+2021-09-18 23:53:27.844 | INFO | New work accepted 
+2021-09-18 23:53:28.852 | INFO | New work accepted 
+2021-09-19 00:10:10.031 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-19 00:10:13.518 | ERROR | ['Traceback (most recent call last):\n', '  File "/app/lib/queue_handler.py", line 74, in publish\n    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),\n', '  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps\n    return _default_encoder.encode(obj)\n', '  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode\n    chunks = self.iterencode(o, _one_shot=True)\n', '  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode\n    return _iterencode(o, 0)\n', '  File "/usr/lib/python3.8/json/encoder.py", line 179, in default\n    raise TypeError(f\'Object of type {o.__class__.__name__} \'\n', 'TypeError: Object of type UUID is not JSON serializable\n', '\nDuring handling of the above exception, another exception occurred:\n\n', 'Traceback (most recent call last):\n', '  File "/app/server/scan_manager.py", line 62, in <module>\n    sm.send_to_scanners(host_string=\'192.168.1.0/24\', port_string=\'2379\')\n', '  File "/app/server/scan_manager.py", line 46, in send_to_scanners\n    self.queue.publish(\'work_order\', message)\n', '  File "/app/lib/queue_handler.py", line 89, in publish\n    logger.exception(\'Exception while trying to publish to queueu:\', queue_name, message)\n', "NameError: name 'queue_name' is not defined\n"]
+2021-09-19 00:10:37.677 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.0', 'port_string': '2379'}, {'host': '192.168.1.1', 'port_string': '2379'}, {'host': '192.168.1.2', 'port_string': '2379'}, {'host': '192.168.1.3', 'port_string': '2379'}, {'host': '192.168.1.4', 'port_string': '2379'}, {'host': '192.168.1.5', 'port_string': '2379'}, {'host': '192.168.1.6', 'port_string': '2379'}, {'host': '192.168.1.7', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.678 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.8', 'port_string': '2379'}, {'host': '192.168.1.9', 'port_string': '2379'}, {'host': '192.168.1.10', 'port_string': '2379'}, {'host': '192.168.1.11', 'port_string': '2379'}, {'host': '192.168.1.12', 'port_string': '2379'}, {'host': '192.168.1.13', 'port_string': '2379'}, {'host': '192.168.1.14', 'port_string': '2379'}, {'host': '192.168.1.15', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.678 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.16', 'port_string': '2379'}, {'host': '192.168.1.17', 'port_string': '2379'}, {'host': '192.168.1.18', 'port_string': '2379'}, {'host': '192.168.1.19', 'port_string': '2379'}, {'host': '192.168.1.20', 'port_string': '2379'}, {'host': '192.168.1.21', 'port_string': '2379'}, {'host': '192.168.1.22', 'port_string': '2379'}, {'host': '192.168.1.23', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.678 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.24', 'port_string': '2379'}, {'host': '192.168.1.25', 'port_string': '2379'}, {'host': '192.168.1.26', 'port_string': '2379'}, {'host': '192.168.1.27', 'port_string': '2379'}, {'host': '192.168.1.28', 'port_string': '2379'}, {'host': '192.168.1.29', 'port_string': '2379'}, {'host': '192.168.1.30', 'port_string': '2379'}, {'host': '192.168.1.31', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.679 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.32', 'port_string': '2379'}, {'host': '192.168.1.33', 'port_string': '2379'}, {'host': '192.168.1.34', 'port_string': '2379'}, {'host': '192.168.1.35', 'port_string': '2379'}, {'host': '192.168.1.36', 'port_string': '2379'}, {'host': '192.168.1.37', 'port_string': '2379'}, {'host': '192.168.1.38', 'port_string': '2379'}, {'host': '192.168.1.39', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.679 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.40', 'port_string': '2379'}, {'host': '192.168.1.41', 'port_string': '2379'}, {'host': '192.168.1.42', 'port_string': '2379'}, {'host': '192.168.1.43', 'port_string': '2379'}, {'host': '192.168.1.44', 'port_string': '2379'}, {'host': '192.168.1.45', 'port_string': '2379'}, {'host': '192.168.1.46', 'port_string': '2379'}, {'host': '192.168.1.47', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.679 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.48', 'port_string': '2379'}, {'host': '192.168.1.49', 'port_string': '2379'}, {'host': '192.168.1.50', 'port_string': '2379'}, {'host': '192.168.1.51', 'port_string': '2379'}, {'host': '192.168.1.52', 'port_string': '2379'}, {'host': '192.168.1.53', 'port_string': '2379'}, {'host': '192.168.1.54', 'port_string': '2379'}, {'host': '192.168.1.55', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.679 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.56', 'port_string': '2379'}, {'host': '192.168.1.57', 'port_string': '2379'}, {'host': '192.168.1.58', 'port_string': '2379'}, {'host': '192.168.1.59', 'port_string': '2379'}, {'host': '192.168.1.60', 'port_string': '2379'}, {'host': '192.168.1.61', 'port_string': '2379'}, {'host': '192.168.1.62', 'port_string': '2379'}, {'host': '192.168.1.63', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.679 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.64', 'port_string': '2379'}, {'host': '192.168.1.65', 'port_string': '2379'}, {'host': '192.168.1.66', 'port_string': '2379'}, {'host': '192.168.1.67', 'port_string': '2379'}, {'host': '192.168.1.68', 'port_string': '2379'}, {'host': '192.168.1.69', 'port_string': '2379'}, {'host': '192.168.1.70', 'port_string': '2379'}, {'host': '192.168.1.71', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.679 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.72', 'port_string': '2379'}, {'host': '192.168.1.73', 'port_string': '2379'}, {'host': '192.168.1.74', 'port_string': '2379'}, {'host': '192.168.1.75', 'port_string': '2379'}, {'host': '192.168.1.76', 'port_string': '2379'}, {'host': '192.168.1.77', 'port_string': '2379'}, {'host': '192.168.1.78', 'port_string': '2379'}, {'host': '192.168.1.79', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.680 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.80', 'port_string': '2379'}, {'host': '192.168.1.81', 'port_string': '2379'}, {'host': '192.168.1.82', 'port_string': '2379'}, {'host': '192.168.1.83', 'port_string': '2379'}, {'host': '192.168.1.84', 'port_string': '2379'}, {'host': '192.168.1.85', 'port_string': '2379'}, {'host': '192.168.1.86', 'port_string': '2379'}, {'host': '192.168.1.87', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.680 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.88', 'port_string': '2379'}, {'host': '192.168.1.89', 'port_string': '2379'}, {'host': '192.168.1.90', 'port_string': '2379'}, {'host': '192.168.1.91', 'port_string': '2379'}, {'host': '192.168.1.92', 'port_string': '2379'}, {'host': '192.168.1.93', 'port_string': '2379'}, {'host': '192.168.1.94', 'port_string': '2379'}, {'host': '192.168.1.95', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.680 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.96', 'port_string': '2379'}, {'host': '192.168.1.97', 'port_string': '2379'}, {'host': '192.168.1.98', 'port_string': '2379'}, {'host': '192.168.1.99', 'port_string': '2379'}, {'host': '192.168.1.100', 'port_string': '2379'}, {'host': '192.168.1.101', 'port_string': '2379'}, {'host': '192.168.1.102', 'port_string': '2379'}, {'host': '192.168.1.103', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.680 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.104', 'port_string': '2379'}, {'host': '192.168.1.105', 'port_string': '2379'}, {'host': '192.168.1.106', 'port_string': '2379'}, {'host': '192.168.1.107', 'port_string': '2379'}, {'host': '192.168.1.108', 'port_string': '2379'}, {'host': '192.168.1.109', 'port_string': '2379'}, {'host': '192.168.1.110', 'port_string': '2379'}, {'host': '192.168.1.111', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.680 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.112', 'port_string': '2379'}, {'host': '192.168.1.113', 'port_string': '2379'}, {'host': '192.168.1.114', 'port_string': '2379'}, {'host': '192.168.1.115', 'port_string': '2379'}, {'host': '192.168.1.116', 'port_string': '2379'}, {'host': '192.168.1.117', 'port_string': '2379'}, {'host': '192.168.1.118', 'port_string': '2379'}, {'host': '192.168.1.119', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.681 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.120', 'port_string': '2379'}, {'host': '192.168.1.121', 'port_string': '2379'}, {'host': '192.168.1.122', 'port_string': '2379'}, {'host': '192.168.1.123', 'port_string': '2379'}, {'host': '192.168.1.124', 'port_string': '2379'}, {'host': '192.168.1.125', 'port_string': '2379'}, {'host': '192.168.1.126', 'port_string': '2379'}, {'host': '192.168.1.127', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.681 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.128', 'port_string': '2379'}, {'host': '192.168.1.129', 'port_string': '2379'}, {'host': '192.168.1.130', 'port_string': '2379'}, {'host': '192.168.1.131', 'port_string': '2379'}, {'host': '192.168.1.132', 'port_string': '2379'}, {'host': '192.168.1.133', 'port_string': '2379'}, {'host': '192.168.1.134', 'port_string': '2379'}, {'host': '192.168.1.135', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.681 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.136', 'port_string': '2379'}, {'host': '192.168.1.137', 'port_string': '2379'}, {'host': '192.168.1.138', 'port_string': '2379'}, {'host': '192.168.1.139', 'port_string': '2379'}, {'host': '192.168.1.140', 'port_string': '2379'}, {'host': '192.168.1.141', 'port_string': '2379'}, {'host': '192.168.1.142', 'port_string': '2379'}, {'host': '192.168.1.143', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.681 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.144', 'port_string': '2379'}, {'host': '192.168.1.145', 'port_string': '2379'}, {'host': '192.168.1.146', 'port_string': '2379'}, {'host': '192.168.1.147', 'port_string': '2379'}, {'host': '192.168.1.148', 'port_string': '2379'}, {'host': '192.168.1.149', 'port_string': '2379'}, {'host': '192.168.1.150', 'port_string': '2379'}, {'host': '192.168.1.151', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.681 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.152', 'port_string': '2379'}, {'host': '192.168.1.153', 'port_string': '2379'}, {'host': '192.168.1.154', 'port_string': '2379'}, {'host': '192.168.1.155', 'port_string': '2379'}, {'host': '192.168.1.156', 'port_string': '2379'}, {'host': '192.168.1.157', 'port_string': '2379'}, {'host': '192.168.1.158', 'port_string': '2379'}, {'host': '192.168.1.159', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.681 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.160', 'port_string': '2379'}, {'host': '192.168.1.161', 'port_string': '2379'}, {'host': '192.168.1.162', 'port_string': '2379'}, {'host': '192.168.1.163', 'port_string': '2379'}, {'host': '192.168.1.164', 'port_string': '2379'}, {'host': '192.168.1.165', 'port_string': '2379'}, {'host': '192.168.1.166', 'port_string': '2379'}, {'host': '192.168.1.167', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.682 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.168', 'port_string': '2379'}, {'host': '192.168.1.169', 'port_string': '2379'}, {'host': '192.168.1.170', 'port_string': '2379'}, {'host': '192.168.1.171', 'port_string': '2379'}, {'host': '192.168.1.172', 'port_string': '2379'}, {'host': '192.168.1.173', 'port_string': '2379'}, {'host': '192.168.1.174', 'port_string': '2379'}, {'host': '192.168.1.175', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.682 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.176', 'port_string': '2379'}, {'host': '192.168.1.177', 'port_string': '2379'}, {'host': '192.168.1.178', 'port_string': '2379'}, {'host': '192.168.1.179', 'port_string': '2379'}, {'host': '192.168.1.180', 'port_string': '2379'}, {'host': '192.168.1.181', 'port_string': '2379'}, {'host': '192.168.1.182', 'port_string': '2379'}, {'host': '192.168.1.183', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.682 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.184', 'port_string': '2379'}, {'host': '192.168.1.185', 'port_string': '2379'}, {'host': '192.168.1.186', 'port_string': '2379'}, {'host': '192.168.1.187', 'port_string': '2379'}, {'host': '192.168.1.188', 'port_string': '2379'}, {'host': '192.168.1.189', 'port_string': '2379'}, {'host': '192.168.1.190', 'port_string': '2379'}, {'host': '192.168.1.191', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.682 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.192', 'port_string': '2379'}, {'host': '192.168.1.193', 'port_string': '2379'}, {'host': '192.168.1.194', 'port_string': '2379'}, {'host': '192.168.1.195', 'port_string': '2379'}, {'host': '192.168.1.196', 'port_string': '2379'}, {'host': '192.168.1.197', 'port_string': '2379'}, {'host': '192.168.1.198', 'port_string': '2379'}, {'host': '192.168.1.199', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.682 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.200', 'port_string': '2379'}, {'host': '192.168.1.201', 'port_string': '2379'}, {'host': '192.168.1.202', 'port_string': '2379'}, {'host': '192.168.1.203', 'port_string': '2379'}, {'host': '192.168.1.204', 'port_string': '2379'}, {'host': '192.168.1.205', 'port_string': '2379'}, {'host': '192.168.1.206', 'port_string': '2379'}, {'host': '192.168.1.207', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.682 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.208', 'port_string': '2379'}, {'host': '192.168.1.209', 'port_string': '2379'}, {'host': '192.168.1.210', 'port_string': '2379'}, {'host': '192.168.1.211', 'port_string': '2379'}, {'host': '192.168.1.212', 'port_string': '2379'}, {'host': '192.168.1.213', 'port_string': '2379'}, {'host': '192.168.1.214', 'port_string': '2379'}, {'host': '192.168.1.215', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.683 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.216', 'port_string': '2379'}, {'host': '192.168.1.217', 'port_string': '2379'}, {'host': '192.168.1.218', 'port_string': '2379'}, {'host': '192.168.1.219', 'port_string': '2379'}, {'host': '192.168.1.220', 'port_string': '2379'}, {'host': '192.168.1.221', 'port_string': '2379'}, {'host': '192.168.1.222', 'port_string': '2379'}, {'host': '192.168.1.223', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.683 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.224', 'port_string': '2379'}, {'host': '192.168.1.225', 'port_string': '2379'}, {'host': '192.168.1.226', 'port_string': '2379'}, {'host': '192.168.1.227', 'port_string': '2379'}, {'host': '192.168.1.228', 'port_string': '2379'}, {'host': '192.168.1.229', 'port_string': '2379'}, {'host': '192.168.1.230', 'port_string': '2379'}, {'host': '192.168.1.231', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.683 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.232', 'port_string': '2379'}, {'host': '192.168.1.233', 'port_string': '2379'}, {'host': '192.168.1.234', 'port_string': '2379'}, {'host': '192.168.1.235', 'port_string': '2379'}, {'host': '192.168.1.236', 'port_string': '2379'}, {'host': '192.168.1.237', 'port_string': '2379'}, {'host': '192.168.1.238', 'port_string': '2379'}, {'host': '192.168.1.239', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.683 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.240', 'port_string': '2379'}, {'host': '192.168.1.241', 'port_string': '2379'}, {'host': '192.168.1.242', 'port_string': '2379'}, {'host': '192.168.1.243', 'port_string': '2379'}, {'host': '192.168.1.244', 'port_string': '2379'}, {'host': '192.168.1.245', 'port_string': '2379'}, {'host': '192.168.1.246', 'port_string': '2379'}, {'host': '192.168.1.247', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.683 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': [{'host': '192.168.1.248', 'port_string': '2379'}, {'host': '192.168.1.249', 'port_string': '2379'}, {'host': '192.168.1.250', 'port_string': '2379'}, {'host': '192.168.1.251', 'port_string': '2379'}, {'host': '192.168.1.252', 'port_string': '2379'}, {'host': '192.168.1.253', 'port_string': '2379'}, {'host': '192.168.1.254', 'port_string': '2379'}, {'host': '192.168.1.255', 'port_string': '2379'}]} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:37.683 | ERROR | Exception while trying to publish to routing_key: work_order {'type': 'work_order', 'scan_id': UUID('e606a5e2-b2f5-4935-b3d1-5628c4f57258'), 'data': []} 
+Traceback (most recent call last):
+  File "/app/lib/queue_handler.py", line 74, in publish
+    exchange=self.exchange_name, routing_key=routing_key, body=json.dumps(message),
+  File "/usr/lib/python3.8/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+  File "/usr/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/lib/python3.8/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type UUID is not JSON serializable
+2021-09-19 00:10:57.711 | INFO | New work accepted 
+2021-09-19 00:10:58.727 | INFO | New work accepted 
+2021-09-19 00:10:59.733 | INFO | New work accepted 
+2021-09-19 00:11:00.741 | INFO | New work accepted 
+2021-09-19 00:11:01.748 | INFO | New work accepted 
+2021-09-19 00:11:02.757 | INFO | New work accepted 
+2021-09-19 00:11:03.764 | INFO | New work accepted 
+2021-09-19 00:11:04.771 | INFO | New work accepted 
+2021-09-19 00:11:05.778 | INFO | New work accepted 
+2021-09-19 00:11:06.785 | INFO | New work accepted 
+2021-09-19 00:11:07.660 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-19 00:11:29.477 | INFO | New work accepted 
+2021-09-19 00:11:30.491 | INFO | New work accepted 
+2021-09-19 00:11:31.499 | INFO | New work accepted 
+2021-09-19 00:11:32.506 | INFO | New work accepted 
+2021-09-19 00:11:33.513 | INFO | New work accepted 
+2021-09-19 00:11:34.521 | INFO | New work accepted 
+2021-09-19 00:11:35.528 | INFO | New work accepted 
+2021-09-19 00:11:36.536 | INFO | New work accepted 
+2021-09-19 00:11:37.544 | INFO | New work accepted 
+2021-09-19 00:11:38.552 | INFO | New work accepted 
+2021-09-19 00:11:39.558 | INFO | New work accepted 
+2021-09-19 00:11:40.438 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-19 00:11:44.662 | INFO | New work accepted 
+2021-09-19 00:11:45.671 | INFO | New work accepted 
+2021-09-19 00:11:46.679 | INFO | New work accepted 
+2021-09-19 00:11:47.685 | INFO | New work accepted 
+2021-09-19 00:11:48.692 | INFO | New work accepted 
+2021-09-19 00:11:49.700 | INFO | New work accepted 
+2021-09-19 00:11:50.707 | INFO | New work accepted 
+2021-09-19 00:11:51.714 | INFO | New work accepted 
+2021-09-19 00:11:52.721 | INFO | New work accepted 
+2021-09-19 00:11:53.727 | INFO | New work accepted 
+2021-09-19 00:11:54.734 | INFO | New work accepted 
+2021-09-19 00:11:55.741 | INFO | New work accepted 
+2021-09-19 00:11:56.749 | INFO | New work accepted 
+2021-09-19 00:11:57.756 | INFO | New work accepted 
+2021-09-19 00:11:58.764 | INFO | New work accepted 
+2021-09-19 00:11:59.771 | INFO | New work accepted 
+2021-09-19 00:12:00.777 | INFO | New work accepted 
+2021-09-19 00:12:01.785 | INFO | New work accepted 
+2021-09-19 00:12:02.792 | INFO | New work accepted 
+2021-09-19 00:12:03.800 | INFO | New work accepted 
+2021-09-19 00:12:04.807 | INFO | New work accepted 
+2021-09-19 00:12:05.816 | INFO | New work accepted 
+2021-09-19 00:12:06.823 | INFO | New work accepted 
+2021-09-19 00:12:07.829 | INFO | New work accepted 
+2021-09-19 00:12:08.836 | INFO | New work accepted 
+2021-09-19 00:12:09.844 | INFO | New work accepted 
+2021-09-19 00:12:10.851 | INFO | New work accepted 
+2021-09-19 00:12:11.859 | INFO | New work accepted 
+2021-09-19 00:12:12.866 | INFO | New work accepted 
+2021-09-19 00:12:13.887 | INFO | New work accepted 
+2021-09-19 00:12:14.894 | INFO | New work accepted 
+2021-09-19 00:12:15.901 | INFO | New work accepted 
+2021-09-19 00:12:16.908 | INFO | New work accepted 
+2021-09-19 00:16:42.546 | INFO | New work accepted 
+2021-09-19 00:16:42.546 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:16:42.548 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:16:42.548 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:16:42.548 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:16:42.548 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:16:42.549 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:16:42.549 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:16:42.550 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:16:42.550 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:16:42.551 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:16:42.553 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:16:42.553 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:16:42.553 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:16:42.553 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:16:42.554 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:16:42.554 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:16:43.560 | INFO | New work accepted 
+2021-09-19 00:16:43.560 | INFO | New work accepted 
+2021-09-19 00:16:44.567 | INFO | New work accepted 
+2021-09-19 00:16:45.574 | INFO | New work accepted 
+2021-09-19 00:16:45.574 | INFO | New work accepted 
+2021-09-19 00:16:46.581 | INFO | New work accepted 
+2021-09-19 00:16:47.588 | INFO | New work accepted 
+2021-09-19 00:16:47.588 | INFO | New work accepted 
+2021-09-19 00:16:48.596 | INFO | New work accepted 
+2021-09-19 00:16:49.604 | INFO | New work accepted 
+2021-09-19 00:16:49.605 | INFO | New work accepted 
+2021-09-19 00:16:50.612 | INFO | New work accepted 
+2021-09-19 00:16:51.620 | INFO | New work accepted 
+2021-09-19 00:16:51.621 | INFO | New work accepted 
+2021-09-19 00:16:52.630 | INFO | New work accepted 
+2021-09-19 00:16:53.674 | INFO | New work accepted 
+2021-09-19 00:16:53.675 | INFO | New work accepted 
+2021-09-19 00:16:54.682 | INFO | New work accepted 
+2021-09-19 00:16:55.690 | INFO | New work accepted 
+2021-09-19 00:16:55.690 | INFO | New work accepted 
+2021-09-19 00:16:56.698 | INFO | New work accepted 
+2021-09-19 00:16:57.706 | INFO | New work accepted 
+2021-09-19 00:16:57.706 | INFO | New work accepted 
+2021-09-19 00:16:58.713 | INFO | New work accepted 
+2021-09-19 00:17:29.963 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-19 00:17:34.943 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-19 00:17:37.390 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:17:37.391 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:17:37.392 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:17:37.392 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:17:37.392 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:17:37.393 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:17:37.393 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:17:37.394 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:17:37.394 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:17:37.395 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:17:37.395 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:17:37.395 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:17:37.395 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:17:37.396 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:17:37.396 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:17:37.397 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:18:49.031 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:18:49.032 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:18:49.032 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:18:49.032 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:18:49.032 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:18:49.032 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:18:49.033 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:18:49.033 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:18:49.034 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:18:49.034 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:18:49.034 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:18:49.035 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:18:49.036 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:18:49.036 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:18:49.036 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:18:49.036 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:18:49.036 | WARNING | Unknown message_type: work_order 
+2021-09-19 00:20:01.769 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-19 00:20:20.835 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-19 00:20:23.035 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-19 00:20:57.575 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-19 00:21:00.807 | INFO | Rabbitmq listener exiting gracefully 
+2021-09-19 00:21:06.288 | DEBUG | New work accepted 
+2021-09-19 00:21:07.303 | DEBUG | New work_result captured 
+2021-09-19 00:21:07.304 | DEBUG | New work accepted 
+2021-09-19 00:21:08.310 | DEBUG | New work accepted 
+2021-09-19 00:21:08.311 | DEBUG | New work_result captured 
+2021-09-19 00:21:09.318 | DEBUG | New work accepted 
+2021-09-19 00:21:09.319 | DEBUG | New work_result captured 
+2021-09-19 00:21:10.325 | DEBUG | New work accepted 
+2021-09-19 00:21:10.326 | DEBUG | New work_result captured 
+2021-09-19 00:21:11.333 | DEBUG | New work accepted 
+2021-09-19 00:21:11.333 | DEBUG | New work_result captured 
+2021-09-19 00:21:12.340 | DEBUG | New work accepted 
+2021-09-19 00:21:12.341 | DEBUG | New work_result captured 
+2021-09-19 00:21:13.348 | DEBUG | New work accepted 
+2021-09-19 00:21:13.349 | DEBUG | New work_result captured 
+2021-09-19 00:21:14.357 | DEBUG | New work accepted 
+2021-09-19 00:21:14.358 | DEBUG | New work_result captured 
+2021-09-19 00:21:15.365 | DEBUG | New work accepted 
+2021-09-19 00:21:15.365 | DEBUG | New work_result captured 
+2021-09-19 00:21:16.372 | DEBUG | New work accepted 
+2021-09-19 00:21:16.373 | DEBUG | New work_result captured 
+2021-09-19 00:21:17.379 | DEBUG | New work accepted 
+2021-09-19 00:21:17.380 | DEBUG | New work_result captured 
+2021-09-19 00:21:18.386 | DEBUG | New work accepted 
+2021-09-19 00:21:18.387 | DEBUG | New work_result captured 
+2021-09-19 00:21:19.394 | DEBUG | New work accepted 
+2021-09-19 00:21:19.395 | DEBUG | New work_result captured 
+2021-09-19 00:21:20.402 | DEBUG | New work accepted 
+2021-09-19 00:21:20.403 | DEBUG | New work_result captured 
+2021-09-19 00:21:21.409 | DEBUG | New work accepted 
+2021-09-19 00:21:21.410 | DEBUG | New work_result captured 
+2021-09-19 00:21:22.417 | DEBUG | New work accepted 
+2021-09-19 00:21:22.418 | DEBUG | New work_result captured 
+2021-09-19 00:21:23.425 | DEBUG | New work accepted 
+2021-09-19 00:21:23.426 | DEBUG | New work_result captured 
+2021-09-19 00:21:24.433 | DEBUG | New work accepted 
+2021-09-19 00:21:24.434 | DEBUG | New work_result captured 
+2021-09-19 00:21:25.441 | DEBUG | New work accepted 
+2021-09-19 00:21:25.441 | DEBUG | New work_result captured 
+2021-09-19 00:21:26.448 | DEBUG | New work accepted 
+2021-09-19 00:21:26.449 | DEBUG | New work_result captured 
+2021-09-19 00:21:27.456 | DEBUG | New work accepted 
+2021-09-19 00:21:27.456 | DEBUG | New work_result captured 
+2021-09-19 00:21:28.463 | DEBUG | New work accepted 
+2021-09-19 00:21:28.463 | DEBUG | New work_result captured 
+2021-09-19 00:21:29.471 | DEBUG | New work accepted 
+2021-09-19 00:21:29.471 | DEBUG | New work_result captured 
+2021-09-19 00:21:30.478 | DEBUG | New work accepted 
+2021-09-19 00:21:30.480 | DEBUG | New work_result captured 
+2021-09-19 00:21:31.486 | DEBUG | New work accepted 
+2021-09-19 00:21:31.487 | DEBUG | New work_result captured 
+2021-09-19 00:21:32.494 | DEBUG | New work accepted 
+2021-09-19 00:21:32.495 | DEBUG | New work_result captured 
+2021-09-19 00:21:33.502 | DEBUG | New work accepted 
+2021-09-19 00:21:33.503 | DEBUG | New work_result captured 
+2021-09-19 00:21:34.510 | DEBUG | New work accepted 
+2021-09-19 00:21:34.511 | DEBUG | New work_result captured 
+2021-09-19 00:21:35.518 | DEBUG | New work accepted 
+2021-09-19 00:21:35.519 | DEBUG | New work_result captured 
+2021-09-19 00:21:36.526 | DEBUG | New work accepted 
+2021-09-19 00:21:36.526 | DEBUG | New work_result captured 
+2021-09-19 00:21:37.534 | DEBUG | New work accepted 
+2021-09-19 00:21:37.535 | DEBUG | New work_result captured 
+2021-09-19 00:21:38.541 | DEBUG | New work accepted 
+2021-09-19 00:21:38.542 | DEBUG | New work_result captured 

@@ -1,0 +1,5 @@
+pika
+flask
+flask-sqlalchemy
+flask-migrate
+flask_wtf

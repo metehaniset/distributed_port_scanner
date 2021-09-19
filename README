@@ -1,0 +1,9 @@
+docker login
+docker build -t x2q3m6/portscanner:rabbit_test-v2 .
+docker push x2q3m6/portscanner:rabbit_test-v2
+
+
+kubectl get pods
+kubectl apply -f python_rabbit2.yml
+kubectl describe pod python-rabbit2
+
