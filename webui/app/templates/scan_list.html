@@ -1,7 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% for scan in scans %}
-    <div><p>{{ scan.work_id }} {{ scan.ip }} {{ scan.port }}</p></div>
-    {% endfor %}
+        <h2>Scan List</h2>
+          <div class="table-responsive">
+              <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">ScanID</th>
+                    <th scope="col">Start Time</th>
+                  <th scope="col">IP</th>
+                  <th scope="col">Port</th>
+                  <th scope="col">IP Count</th>
+                    <th scope="col">Completed Perc</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for scan in scans %}
+                <tr onclick='window.location.assign("{{url_for("scan_details", scan_id=scan.scan_id)}}");' style="cursor: pointer">
+                  <td>{{ scan.scan_id }}</td>
+                    <td>{{ scan.timestamp }}</td>
+                  <td>{{ scan.ip }} </td>
+                  <td>{{ scan.port }}</td>
+                  <td>{{scan.ip_count}}</td>
+                    <td>{{scan.completed_perc}}</td>
+                    <td></td>
+                </tr>
+            {% endfor %}
+              </tbody>
+            </table>
+          </div>
 {% endblock %}

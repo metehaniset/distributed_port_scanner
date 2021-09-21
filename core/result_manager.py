@@ -1,5 +1,6 @@
 import sys
 import ipaddress
+import time
 import uuid
 import re
 import json
@@ -28,36 +29,36 @@ class ResultManager:
                 return
             elif message['type'] == 'work_order_result':
                 work_order_result = message['data']
-                work_id = message['work_id']
+                scan_id = message['scan_id']
                 logger.debug('New work_result captured')
-                self.update_db_with_result(work_id, work_order_result)
+                self.update_db_with_result(scan_id, work_order_result)
                 # self.process_result(message)
             else:
                 logger.warning('Unknown message_type:', message['type'])
         except Exception as e:
             logger.exception('exception in execute_order callback')
 
-    def update_db_with_result(self, work_id, work_order_result):
+    def update_db_with_result(self, scan_id, work_order_result):
         for r in work_order_result:
             r['geolocation'] = self.get_geolocation(r)
-            r['work_id'] = work_id
+            r['scan_id'] = scan_id
             print('inserted', r)
             self.elastic.index(index="distscanner-result", body=r)
         pass
 
-    # def update_db_with_result(self, work_id, result):
-    #     work_id = "27b638ed-8e4c-4806-88e3-a06cdf5c7cb9"
+    # def update_db_with_result(self, scan_id, result):
+    #     scan_id = "27b638ed-8e4c-4806-88e3-a06cdf5c7cb9"
     #     result = [{'host': '192.168.1.96', 'open_ports': [{'port': 5672, 'protocol': 'tcp', 'reason': 'syn-ack', 'service': {'name': 'unknown', 'version': 'unknown', 'os-type': 'unknown'}}]}, {'host': '192.168.1.97', 'open_ports': []}, {'host': '192.168.1.98', 'open_ports': []}, {'host': '192.168.1.99', 'open_ports': []}, {'host': '192.168.1.100', 'open_ports': []}, {'host': '192.168.1.101', 'open_ports': []}, {'host': '192.168.1.102', 'open_ports': []}, {'host': '192.168.1.103', 'open_ports': []}]
     #
     #     # res = es.search(index="distscanner-result", body={"query": {"match_all": {}}})
-    #     res = self.elastic.search(index="distscanner-result", body={"query": {"match": {'work_id':'27b638ed-8e4c-4806-88e3-a06cdf5c7cb9'}}})
+    #     res = self.elastic.search(index="distscanner-result", body={"query": {"match": {'scan_id':'27b638ed-8e4c-4806-88e3-a06cdf5c7cb9'}}})
     #     print("Got %d Hits:" % res['hits']['total']['value'])
     #     for hit in res['hits']['hits']:
     #         print(hit["_source"])
     #
     #     # for r in result:
     #     #     r['geolocation'] = self.get_geolocation(r)
-    #     #     r['work_id'] = work_id
+    #     #     r['scan_id'] = scan_id
     #     #     self.elastic.index(index="distscanner-result", body=r)
     #
     #     return False
@@ -66,14 +67,10 @@ class ResultManager:
         return 'Turkey'
 
 
-sm = ResultManager()
-# sm.elastic.indices.delete('my_index')
-sm.run()
-#
-# work_id = '27b638ed-8e4c-4806-88e3-a06cdf5c7cb9'
-#
-#
-# query = {"query": {"match": {'work_id': '27b638ed-8e4c-4806-88e3-a06cdf5c7cb9'}}}
-# result = sm.elastic.search(index="distscanner-result", body=query)
-# print(result)
-#
+def main():
+    # time.sleep(30)  # wait for rabbitmq
+    sm = ResultManager()
+    sm.run()
+
+
+if __name__ == "__main__": main()

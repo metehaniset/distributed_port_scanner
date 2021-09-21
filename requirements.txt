@@ -4,6 +4,7 @@ flask-sqlalchemy
 flask-migrate
 flask_wtf
 flask-login
+gunicorn
 
 WTForms~=2.3.3
 Werkzeug~=2.0.1

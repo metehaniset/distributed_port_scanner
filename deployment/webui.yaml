@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: webui-gunicorn
+  name: scanner-webui
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    targetPort: 80
+    nodePort: 30001
+    protocol: TCP
+    name: http
+  selector:
+    app: webui-gunicorn
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webui-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webui-gunicorn
+  template:
+    metadata:
+      labels:
+        app: webui-gunicorn
+    spec:
+      containers:
+      - name: webui
+        image: x2q3m6/portscanner:rabbit_test-v3
+        command: ["/bin/sh"]
+        args:
+          - -c
+          - >-
+              gunicorn
+              --bind 0.0.0.0:80
+              --chdir /app/webui
+              webui:app
+

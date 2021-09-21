@@ -8,7 +8,7 @@ from elasticsearch import Elasticsearch
 
 app = Flask(__name__)
 app.config.from_object(Config)
-app.elasticsearch = Elasticsearch(['elasticsearch'])    # service name on kubernetes is elasticsearch
+app.elasticsearch = Elasticsearch(['elasticsearch'])    # service name on kubernetes
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)

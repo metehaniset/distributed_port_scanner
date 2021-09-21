@@ -1,23 +1,56 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Start Scan</h1>
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.ip.label }}<br>
-            {{ form.ip(size=32) }}<br>
-            {% for error in form.ip.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.port.label }}<br>
-            {{ form.port(cols=50, rows=4) }}<br>
-            {% for error in form.port.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.submit() }}</p>
-    </form>
+    <div class="col-md-12">
+        <h4 class="mb-3">Start Scan</h4>
+            <form action="" method="post" class="form-inline">
+                {{ form.hidden_tag() }}
+                <div class="row">
+
+                    <div class="dropdown form-group mx-sm-3 mb-3">
+                      <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Scanner
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <button class="dropdown-item">Homemade</button>
+                          <button class="dropdown-item">Nmap(Not implemented)</button>
+                          <button class="dropdown-item">Nessus(Not implemented)</button>
+                          <button class="dropdown-item">Bla bla</button>
+                      </div>
+                    </div>
+
+                  <div class="form-group mb-2">
+                    {{ form.ip.label(class="mr-sm-2") }}
+                      {{ form.ip(class="form-control") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.ip.errors %}
+                        [{{ error }}]
+                        {% endfor %}
+                    </div>
+                  </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                    {{ form.port.label(class="mr-sm-2") }}
+                      {{ form.port(class="form-control") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.port.errors %}
+                        [{{ error }}]
+                        {% endfor %}
+                    </div>
+                  </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                    {{ form.params.label(class="mr-sm-2") }}
+                      {{ form.params(class="form-control") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.params.errors %}
+                        [{{ error }}]
+                        {% endfor %}
+                    </div>
+                  </div>
+                    {{ form.submit(class="btn btn-primary mb-2") }}
+                </div>
+                <hr class="mb-4">
+              </form>
+            </div>
+
 {% endblock %}

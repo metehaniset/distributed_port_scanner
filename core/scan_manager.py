@@ -4,6 +4,7 @@ import uuid
 import re
 from lib.logger import logger
 from lib.queue_handler import QueueHandler
+import time
 
 
 class ScanManager:
@@ -32,37 +33,38 @@ class ScanManager:
                 return False
         return True
 
-    def send_to_scanners(self, host_string='127.0.0.1', port_string='1000-2000'):
+    def send_to_scanners(self, scanner='ugly', host_string='127.0.0.1', port_string='1000-2000', params_string=None):
         if not self._check_port_string(port_string):
             return None
 
-        work_id = str(uuid.uuid4())
+        scan_id = str(uuid.uuid4())
         host_list = ipaddress.IPv4Network(host_string)
         work = []
         ip_count = 0
+        message = {'type': 'work_order', 'scanner': scanner, 'scan_id': scan_id}
         for ip in host_list:
             ip_count += 1
-            work.append({'host': str(ip), 'port_string': port_string})
-            if len(work) == 8:    # split it 8 host per work
-                message = {'type': 'work_order', 'work_id': work_id, 'data': work}
+            work.append({'host': str(ip), 'port_string': port_string, 'params': params_string})
+            if len(work) == 8:    # split it, 8 host per work
+                message['data'] = work
                 self.queue.publish('work_order', message)
-                # print(message)
                 work = []
 
         # push remaining work to queue
         if len(work) > 0:
-            message = {'type': 'work_order', 'work_id': work_id, 'data': work}
+            message['data'] = work
             self.queue.publish('work_order', message)
             # print(message)
 
-        return {'work_id': work_id, 'ip_count': ip_count}
+        return {'scan_id': scan_id, 'ip_count': ip_count}
 
-    def get_results(self):
-        pass
-
-    def update_db_with_result(self):
-        pass
-
-
-# sm = ScanManager()
-# sm.send_to_scanners(host_string='192.168.1.0/24', port_string='2379')
+# # for testing
+# def main():
+#     time.sleep(30)
+#     sm = ScanManager()
+#     sm.send_to_scanners(host_string='192.168.1.0/24', port_string='2379')
+#
+#
+# if __name__ == "__main__": main()
+#
+#

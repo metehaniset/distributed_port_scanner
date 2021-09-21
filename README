@@ -1,12 +1,4 @@
-docker login
-docker build -t x2q3m6/portscanner:rabbit_test-v2 .
-docker push x2q3m6/portscanner:rabbit_test-v2
+For working with docker-compose you must add two records to your /etc/hosts file
+127.0.0.1	rabbitmq
+127.0.0.1	elasticsearch
 
-
-kubectl get pods
-kubectl apply -f python_rabbit2.yml
-kubectl describe pod python-rabbit2
-
-
-elasticsearch_memory_problem
-sysctl -w vm.max_map_count=262144

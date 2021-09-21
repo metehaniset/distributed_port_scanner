@@ -21,9 +21,11 @@ class User(UserMixin, db.Model):
 
 class Scan(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    work_id = db.Column(db.String(128), index=True, unique=True)
+    scan_id = db.Column(db.String(128), index=True, unique=True)
+    scanner = db.Column(db.String(128), index=False)
     ip = db.Column(db.String(128), index=False)
     port = db.Column(db.String(128), index=False)
+    params = db.Column(db.String(128), index=False)
     ip_count = db.Column(db.Integer, index=False)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.now)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))

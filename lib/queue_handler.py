@@ -87,6 +87,7 @@ class QueueHandler:
                 self.connect()
                 continue
             except Exception as e:
+                logger.error('before publish channel:', self.channel)
                 logger.exception('Exception while trying to publish to routing_key:', routing_key, message)
                 return False
 

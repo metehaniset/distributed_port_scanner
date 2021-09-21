@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ps-result-manager-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ps-result-manager
+  template:
+    metadata:
+      labels:
+        app: ps-result-manager
+    spec:
+      containers:
+      - name: port-scanner-result-manager
+        image: x2q3m6/portscanner:rabbit_test-v3
+        command: [ "python3" ]
+        args: [ "/app/core/result_manager.py" ]
+

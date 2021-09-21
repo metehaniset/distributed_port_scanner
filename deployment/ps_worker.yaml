@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ps-worker-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ps-worker
+  template:
+    metadata:
+      labels:
+        app: ps-worker
+    spec:
+      containers:
+      - name: port-scanner-worker
+        image: x2q3m6/portscanner:rabbit_test-v3
+        command: [ "python3" ]
+        args: [ "/app/scanners/scan_worker.py" ]
+

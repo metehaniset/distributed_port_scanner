@@ -65,6 +65,6 @@ class FileLogger:
         return result
 
 
-logger = FileLogger("distscanner.log", level='WARNING')
+logger = FileLogger("distscanner.log", level='DEBUG')
 sys.excepthook = logger.unhandled_exceptions
 

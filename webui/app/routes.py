@@ -10,7 +10,7 @@ from flask_login import logout_user
 from flask_login import login_required
 from flask import request
 from werkzeug.urls import url_parse
-from server.scan_manager import ScanManager
+from core.scan_manager import ScanManager
 from app import db
 
 
@@ -18,17 +18,7 @@ from app import db
 @app.route('/index')
 @login_required
 def index():
-    posts = [
-        {
-            'author': {'username': 'John'},
-            'body': 'Beautiful day in Portland!'
-        },
-        {
-            'author': {'username': 'Susan'},
-            'body': 'The Avengers movie was so cool!'
-        }
-    ]
-    return render_template("index.html", title='Home Page', posts=posts)
+    return render_template("index.html")
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -65,19 +55,23 @@ def user(username):
     return render_template('user.html', user=user, posts=posts)
 
 
-@app.route('/scan_result/<work_id>')
+@app.route('/scan_details/<scan_id>')
 @login_required
-def scan_result(work_id):
-    scan = Scan.query.filter_by(work_id=work_id).first_or_404()
-    result, hit_count = find_all_with_work_id(work_id)
+def scan_details(scan_id):
+    scan = Scan.query.filter_by(scan_id=scan_id).first_or_404()
+    result, hit_count = find_all_with_work_id(scan_id)
 
-    result_list = []
-    for hit in result:
-        result_list.append(hit['_source'])
+    if result is not None:
+        result_list = []
+        for hit in result:
+            result_list.append(hit['_source'])
 
-    scan.completed_perc = round(hit_count / scan.ip_count, 2) * 100
+        scan.completed_perc = round(hit_count * 100 / scan.ip_count, 2)
+    else:
+        result_list = []
+        scan.completed_perc = 0.0
 
-    return render_template('scan.html', scan=scan, result=result_list)
+    return render_template('scan_details.html', scan=scan, result=result_list)
 
 
 @app.route('/scan_list')
@@ -91,20 +85,21 @@ def scan_list():
 @login_required
 def start_scan():
     form = StartScanForm()
+    SCANNER = 'ugly'
     if form.validate_on_submit():
         sm = ScanManager()
-        result = sm.send_to_scanners(host_string=form.ip.data, port_string=form.port.data)
+        result = sm.send_to_scanners(scanner=SCANNER, host_string=form.ip.data, port_string=form.port.data, params_string=None)
         # print(result)
         if result is not None:
-            scan = Scan(work_id=result['work_id'], ip=form.ip.data, port=form.port.data,
-                        ip_count=result['ip_count'], owner=current_user)
+            scan = Scan(scan_id=result['scan_id'], ip=form.ip.data, port=form.port.data, params=form.params.data,
+                        scanner=SCANNER, ip_count=result['ip_count'], owner=current_user)
             db.session.add(scan)
             db.session.commit()
-            flash('Scan is started with work_id: ' + result['work_id'] + ' ip_count: ' + str(result['ip_count']))
+            flash('Scan is started with scan_id: ' + result['scan_id'] + ' ip_count: ' + str(result['ip_count']))
+            return redirect(url_for('scan_details', scan_id=result['scan_id']))
         else:
             flash('Unkown parameters')
 
-        return redirect(url_for('start_scan'))
     elif request.method == 'GET':
         form.ip.data = ''
         form.port.data = ''

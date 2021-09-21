@@ -13,7 +13,9 @@ class LoginForm(FlaskForm):
 
 
 class StartScanForm(FlaskForm):
+    # scanner = StringField('Scanner', 'validators=[DataRequired()])
     ip = StringField('IP', validators=[DataRequired()])
     port = StringField('Port', validators=[DataRequired()])
+    params = StringField('Params')
     submit = SubmitField('Submit')
 

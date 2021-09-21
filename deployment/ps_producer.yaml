@@ -1,0 +1,21 @@
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: ps-producer-deploy
+#spec:
+#  replicas: 1
+#  selector:
+#    matchLabels:
+#      app: ps-producer
+#  minReadySeconds: 10
+#  template:
+#    metadata:
+#      labels:
+#        app: ps-producer
+#    spec:
+#      containers:
+#      - name: port-scanner-producer
+#        image: x2q3m6/portscanner:rabbit_test-v3
+#        command: [ "python3" ]
+#        args: [ "/app/core/scan_manager.py" ]
+#

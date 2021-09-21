@@ -1,0 +1,75 @@
+version: "3.4"  # compose file version
+#
+#For working with docker-compose you must add following records to your /etc/hosts file
+#127.0.0.1	rabbitmq
+#127.0.0.1	elasticsearch
+#
+services:
+  rabbitmq:
+    image: rabbitmq:3
+    ports:
+      - "5672:5672"
+    restart: unless-stopped
+    networks:
+      - scanner_net
+    environment:
+      TZ: "Europe/Istanbul"
+    logging:
+      options:
+        max-size: 10m
+
+  scan_worker:
+    image: x2q3m6/portscanner:rabbit_test-v4
+    # entrypoint: ["python3", "/app/scanners/ugly/ugly_scanner.py"]
+    entrypoint: ["python3", "/app/scanners/scan_worker.py"]
+    command: tail -F /dev/null
+    restart: unless-stopped
+    networks:
+      - scanner_net
+    depends_on:
+      - rabbitmq
+
+  result_manager:
+    image: x2q3m6/portscanner:rabbit_test-v4
+    entrypoint: ["python3", "/app/core/result_manager.py"]
+    command: tail -F /dev/null
+    restart: unless-stopped
+    networks:
+      - scanner_net
+    depends_on:
+      - rabbitmq
+      - elasticsearch
+#  producer:
+#    image: x2q3m6/portscanner:rabbit_test-v2
+#    entrypoint: ["python3", "/app/core/scan_manager.py"]
+#    restart: unless-stopped
+#    networks:
+#      - scanner_net
+#    depends_on:
+#      - rabbitmq
+
+  elasticsearch:
+    image: elasticsearch:7.14.1
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    restart: unless-stopped
+    networks:
+      - scanner_net
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+    logging:
+      options:
+        max-size: 10m
+
+networks:
+  scanner_net:
+
+volumes:
+  sanner_vol:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/app'
