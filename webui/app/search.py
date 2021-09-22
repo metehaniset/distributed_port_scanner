@@ -1,5 +1,6 @@
 from flask import current_app
 from lib.logger import logger
+from elasticsearch import Elasticsearch
 
 
 def query_index(index, query, page, per_page):
@@ -14,7 +15,7 @@ def query_index(index, query, page, per_page):
 def find_all_with_work_id(scan_id):
     try:
         res = current_app.elasticsearch.search(index="distscanner-result", scroll='5m', size='10000',
-                                               body={"query": {"match": {'scan_id': scan_id}}})
+                                               body={"query": {"filter": {'scan_id': scan_id}}})
 
         hit_count = res['hits']['total']['value']
         return res['hits']['hits'], hit_count
@@ -23,5 +24,40 @@ def find_all_with_work_id(scan_id):
         return None, None
 
 
-def find_host_with_open_ports(scan_id):
-    return []
+def find_scan_details_on_elastics(scan_id):
+    res = current_app.elasticsearch.search(index="distscanner-result",
+                         body={
+                             "query": {
+                                 "bool": {
+                                     "must": [
+                                         {"match": {"scan_id": scan_id}},
+                                         {"exists": {"field": "open_ports"}}
+                                     ]
+                                 },
+                             },
+                             "size": 0,
+                             "aggs": {
+                                 "top_ports": {
+                                     "terms": {
+                                         "field": "open_ports.port",
+                                         "order": {"_count": "desc"},
+                                         "size": 20,
+                                     },
+                                 }
+                             }
+                         })
+
+    top_ports = res['aggregations']['top_ports']['buckets']
+
+    host_up = current_app.elasticsearch.count(index="distscanner-result",
+                            body={"query": {"bool": {"must": [{"match": {"scan_id": scan_id}},
+                                                              {"exists": {"field": "open_ports"}}]}}})
+
+    host_total = current_app.elasticsearch.count(index="distscanner-result",
+                               body={"query": {"match": {'scan_id': scan_id}}})
+
+    return {'top_ports': top_ports, 'host_count': {'up': host_up['count'], 'total': host_total['count']}}
+
+
+# scan_id = '9666b652-d082-4d72-b26b-2c98fd696499'
+# find_scan_details_on_elastics(scan_id)

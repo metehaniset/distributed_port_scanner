@@ -5,7 +5,7 @@ from flask_login import current_user, login_user
 from app.models import User
 from app.models import Scan
 from app.forms import StartScanForm
-from app.search import find_all_with_work_id
+from app.search import find_all_with_work_id, find_scan_details_on_elastics
 from flask_login import logout_user
 from flask_login import login_required
 from flask import request
@@ -59,19 +59,14 @@ def user(username):
 @login_required
 def scan_details(scan_id):
     scan = Scan.query.filter_by(scan_id=scan_id).first_or_404()
-    result, hit_count = find_all_with_work_id(scan_id)
+    # result, hit_count = find_all_with_work_id(scan_id)
+    statistics = find_scan_details_on_elastics(scan_id)
+    print(statistics)
 
-    if result is not None:
-        result_list = []
-        for hit in result:
-            result_list.append(hit['_source'])
+    scan.completed_perc = round(statistics['host_count']['total'] * 100 / scan.ip_count, 2)
+    scan.status = 'Completed' if scan.completed_perc == 100.0 else 'Running'
 
-        scan.completed_perc = round(hit_count * 100 / scan.ip_count, 2)
-    else:
-        result_list = []
-        scan.completed_perc = 0.0
-
-    return render_template('scan_details.html', scan=scan, result=result_list)
+    return render_template('scan_details.html', scan=scan, statistics=statistics)
 
 
 @app.route('/scan_list')

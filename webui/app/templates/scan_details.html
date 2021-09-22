@@ -6,7 +6,7 @@
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted">Scan Overview</span>
           </h4>
-          <ul class="list-group mb-3">
+            <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
                 <h6 class="my-0">Scan ID</h6>
@@ -43,11 +43,56 @@
               </div>
               <span class="text-muted">{{scan.completed_perc}}%</span>
             </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Status</h6>
+              </div>
+              <span class="text-muted">{{scan.status}}</span>
+            </li>
           </ul>
         </div>
     </div>
-    {% for r in result %}
-    <div><p>{{ r.host }} {{ r.open_ports }} {{ r.scan_id }}</p></div>
-    {% endfor %}
 
+    <div class="row">
+        <div class="col-md-6 order-md-1 mb-6">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="host-count"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Graphs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="{{url_for('static', filename='js/chartjs-plugin-colorschemes.js')}}"></script>
+    <script>
+        var top_ports = {{ statistics.top_ports|tojson }};
+        console.log(top_ports);
+        const myLabels =  ["Africa", "Asia", "Europe", "Latin America", "North America"];
+        new Chart(document.getElementById("host-count"), {
+            type: 'doughnut',
+            data: {
+              labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+              datasets: [
+                {
+                  label: "Host Status",
+                  data: [2478,5267,734,784,433],
+                }
+              ]},
+            options: {
+              title: {
+                display: true,
+                text: 'Predicted world population (millions) in 2050'
+              },
+              plugins: {
+                colorschemes: {
+                    scheme: 'tableau.Classic20'
+                }
+              }
+            }
+        });
+
+
+    </script>
 {% endblock %}
