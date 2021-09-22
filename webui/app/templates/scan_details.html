@@ -83,6 +83,7 @@
                 {
                   label: "Host Status",
                   data: {{ statistics.host_count.counts }},
+                  backgroundColor: ["green", "red"]
                 }
               ]},
             options: {
@@ -93,11 +94,6 @@
                 display: true,
                 text: 'Up Down Count'
               },
-              plugins: {
-                colorschemes: {
-                    scheme: 'tableau.Classic20'
-                }
-              }
             }
         });
 

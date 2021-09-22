@@ -2,9 +2,12 @@ from app import db
 from app.models import User, Scan
 from datetime import datetime
 import random
-from elasticsearch import Elasticsearch
+import elasticsearch
+from elasticsearch import Elasticsearch, exceptions
 from lib.logger import logger
 import time
+from lib.utils import is_elastic_running
+
 
 """
 # flask db init
@@ -12,17 +15,22 @@ import time
 # flask db upgrade
 """
 
-
 def generate_test_data(scan_id='9666b652-d082-4d72-b26b-2c98fd696499'):
     while True:
         try:
-            logger.info('inserting test scan results to elasticsearch')
             elastic = Elasticsearch([{'host': 'elasticsearch', 'port': 9200}])
 
-            if elastic.indices.exists(index="distscanner-result"):
-                logger.info('distscanner-result index already exist on elasticsearch. Not running generate_test_data')
-                return
+            if not is_elastic_running():
+                logger.info('Elasticsearch is not ready')
+                time.sleep(10)
+                continue
 
+            print('***'*1000)
+            if elastic.indices.exists(index="distscanner-result"):
+                # logger.info('distscanner-result index already exist on elasticsearch. Not running generate_test_data')
+                return False
+
+            logger.info('inserting test scan results to elasticsearch')
             for i in range(1, 255):
                 if random.random() < 0.70:  # %70 probability for open ports
                     randoms = random.sample(range(1, 65534), 10)
@@ -44,14 +52,17 @@ def generate_test_data(scan_id='9666b652-d082-4d72-b26b-2c98fd696499'):
                     )
 
                 elastic.index(index="distscanner-result", body=host)
-                logger.info('Test data inserted to elasticsearch')
 
+            logger.info('Test data inserted to elasticsearch')
             # break after inserting to elasticsearch
             break
+
         except Exception as e:
             time.sleep(10)
-            logger.exception('exception in startup script')
+            logger.info('exception in startup script', e)
             continue
+
+    return True
 
 
 # logger.info('preparing admin user')

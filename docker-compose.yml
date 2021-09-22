@@ -21,7 +21,6 @@ services:
   web_ui:
     image: x2q3m6/distributed-port-scanner:latest
     entrypoint: ["flask", "run"]
-    command: tail -F /dev/null
     restart: unless-stopped
     networks:
       - scanner_net
@@ -32,7 +31,6 @@ services:
   scan_worker:
     image: x2q3m6/distributed-port-scanner:latest
     entrypoint: ["python3", "/app/scanners/scan_worker.py"]
-    command: tail -F /dev/null
     restart: unless-stopped
     networks:
       - scanner_net
@@ -42,7 +40,6 @@ services:
   result_manager:
     image: x2q3m6/distributed-port-scanner:latest
     entrypoint: ["python3", "/app/core/result_manager.py"]
-    command: tail -F /dev/null
     restart: unless-stopped
     networks:
       - scanner_net

@@ -45,10 +45,6 @@ class ScanWorker:
         ch.basic_ack(delivery_tag=method.delivery_tag)  # send acknowledgment
 
 
-def main():
-    # time.sleep(30)  # wait for rabbitmq
+if __name__ == "__main__":
     sm = ScanWorker()
     sm.run()
-
-
-if __name__ == "__main__": main()
