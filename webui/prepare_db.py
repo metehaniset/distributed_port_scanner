@@ -8,7 +8,8 @@ from lib.logger import logger
 import time
 from lib.utils import is_elastic_running
 
-
+import logging
+logging.getLogger("elasticsearch").setLevel(logging.WARNING)
 """
 # flask db init
 # flask db migrate -m "users table"
@@ -25,7 +26,6 @@ def generate_test_data(scan_id='9666b652-d082-4d72-b26b-2c98fd696499'):
                 time.sleep(10)
                 continue
 
-            print('***'*1000)
             if elastic.indices.exists(index="distscanner-result"):
                 # logger.info('distscanner-result index already exist on elasticsearch. Not running generate_test_data')
                 return False
@@ -82,4 +82,4 @@ def generate_test_data(scan_id='9666b652-d082-4d72-b26b-2c98fd696499'):
 # db.session.add(s)
 # db.session.commit()
 
-generate_test_data()
+# generate_test_data()

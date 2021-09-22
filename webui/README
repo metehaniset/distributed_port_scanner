@@ -1,7 +1,10 @@
-flask db init
-flask db migrate -m "users table"
-flask db upgrade
+You can run it with kubernetes cluster or localy with docker-compose
 
+If you use docker-compose add following records to your /etc/hosts file
+127.0.0.1	rabbitmq
+127.0.0.1	elasticsearch
 
-flask db migrate -m "new fields in user model"
-flask db upgrade
+then run
+docker-compose up
+
+After system ready, you can use application http://localhost:5000
