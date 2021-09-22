@@ -30,14 +30,14 @@ spec:
       labels:
         app: webui-gunicorn
     spec:
-#      initContainers:
-#        - name: init-db
-#          image: x2q3m6/distributed-port-scanner:latest
-#          command: ["/bin/sh"]
-#          args:
-#            - -c
-#            - >-
-#              python3 /app/webui/prepare_db.py;
+      initContainers:
+        - name: init-db
+          image: x2q3m6/distributed-port-scanner:latest
+          command: ["/bin/sh"]
+          args:
+            - -c
+            - >-
+              python3 /app/webui/prepare_db.py;
       containers:
       - name: webui
         image: x2q3m6/distributed-port-scanner:latest

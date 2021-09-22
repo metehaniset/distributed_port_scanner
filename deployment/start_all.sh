@@ -8,6 +8,6 @@ kubectl apply -f webui.yaml
 kubectl get pods
 echo "----"
 echo ""
-echo "Server will start on http://kubernetes-master-node:30001 when all pods are ready"
-echo ""
+echo "Server will start on http://kubernetes-master-node-IP:30001 when all pods are running"
+echo "Check state with: 'kubectl get pods'"
 echo "----"

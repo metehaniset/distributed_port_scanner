@@ -82,4 +82,5 @@ def generate_test_data(scan_id='9666b652-d082-4d72-b26b-2c98fd696499'):
 # db.session.add(s)
 # db.session.commit()
 
-# generate_test_data()
+if __name__ == "__main__":
+    generate_test_data()
