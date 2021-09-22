@@ -20,6 +20,3 @@ ADD . /app
 WORKDIR /app
 RUN rm Dockerfile docker-compose.yml
 RUN rm -rf deployment
-
-WORKDIR /app/webui
-RUN rm app.db

@@ -108,7 +108,7 @@
               labels: top_ports,
               datasets: [
                 {
-                  label: "Host Status",
+                  label: "Port status",
                   data: {{ statistics.top_ports.counts }},
                 }
               ]},
@@ -118,7 +118,7 @@
                   },
               title: {
                 display: true,
-                text: 'Most common ports for scan'
+                text: 'Most common open ports for scan'
               },
               plugins: {
                 colorschemes: {
@@ -127,7 +127,5 @@
               }
             }
         });
-
-
     </script>
 {% endblock %}

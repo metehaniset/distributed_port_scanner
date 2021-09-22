@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: port-scanner-worker
-        image: x2q3m6/portscanner:rabbit_test-v3
+        image: x2q3m6/distributed-port-scanner:latest
         command: [ "python3" ]
         args: [ "/app/scanners/scan_worker.py" ]
 
