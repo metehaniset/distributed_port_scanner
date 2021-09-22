@@ -1,15 +1,15 @@
-pika
-flask
+pika~=1.2.0
+flask~=2.0.1
 flask-sqlalchemy
 flask-migrate
 flask_wtf
 flask-login
 gunicorn
 
-WTForms
-Werkzeug
-alembic
-SQLAlchemy
-elasticsearch
+WTForms~=2.3.3
+Werkzeug~=2.0.1
+alembic~=1.7.3
+SQLAlchemy~=1.4.23
+elasticsearch~=7.14.1
 
-requests
+requests~=2.22.0
