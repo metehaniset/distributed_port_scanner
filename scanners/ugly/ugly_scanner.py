@@ -36,6 +36,8 @@ class UglyScanner:
         port_list = self._parse_portstring(param['port_string'])
         param['open_ports'] = []
         try:
+            if param['host'].split('.')[3] in ['0', '255']:  # dont scan broadcast adresses
+                return
             for port in port_list:
                 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 socket.setdefaulttimeout(1)

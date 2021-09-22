@@ -18,6 +18,7 @@ class ScanWorker:
 
     def work_listener(self, ch, method, properties, body):
         try:
+            logger.debug('New scan request captured')
             message = json.loads(body)
             if message['type'] == 'heartbeat':
                 # logger.info('heartbeat captured')

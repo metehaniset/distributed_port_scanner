@@ -1,0 +1,13 @@
+TODO    add some charts(chart.js) to scan_details page
+TODO    rebuild Dockerfile and push to docker hub
+TODO    Test latest docker image on kubernetes cluster
+TODO    start preparing case report
+
+TODO    update README file
+TODO    implement support for nmap
+TODO    implement support for other scanners
+TODO    implement pause/cancel feature for scans (with fanout exchange)
+TODO    change database from sqlite to postgresql
+TODO    prepare kubernetes yaml for postgresql
+TODO    show kubernetes-cluster info on dashboard
+TODO    implement user profile page (password change etc)

@@ -27,7 +27,8 @@ class Scan(db.Model):
     port = db.Column(db.String(128), index=False)
     params = db.Column(db.String(128), index=False)
     ip_count = db.Column(db.Integer, index=False)
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.now)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.now)    # or utcnow?
+    status = db.Column(db.String(16), index=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 

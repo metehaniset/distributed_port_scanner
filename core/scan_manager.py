@@ -43,6 +43,8 @@ class ScanManager:
         ip_count = 0
         message = {'type': 'work_order', 'scanner': scanner, 'scan_id': scan_id}
         for ip in host_list:
+            if str(ip).split('.')[3] in ['0', '255']:
+                continue
             ip_count += 1
             work.append({'host': str(ip), 'port_string': port_string, 'params': params_string})
             if len(work) == 8:    # split it, 8 host per work
