@@ -41,7 +41,7 @@ def find_scan_details_on_elastics(scan_id):
                                      "terms": {
                                          "field": "open_ports.port",
                                          "order": {"_count": "desc"},
-                                         "size": 20,
+                                         "size": 10,
                                      },
                                  }
                              }

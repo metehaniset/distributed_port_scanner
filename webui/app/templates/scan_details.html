@@ -61,29 +61,64 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-6 order-md-2 mb-6">
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="top-ports"></canvas>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Graphs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
     <script src="{{url_for('static', filename='js/chartjs-plugin-colorschemes.js')}}"></script>
     <script>
-        var top_ports = {{ statistics.top_ports|tojson }};
-        console.log(top_ports);
-        const myLabels =  ["Africa", "Asia", "Europe", "Latin America", "North America"];
+    var host_count = {{ statistics.host_count.labels|tojson }};
         new Chart(document.getElementById("host-count"), {
             type: 'doughnut',
             data: {
-              labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+              labels: host_count,
               datasets: [
                 {
                   label: "Host Status",
-                  data: [2478,5267,734,784,433],
+                  data: {{ statistics.host_count.counts }},
                 }
               ]},
             options: {
+                legend: {
+                    position: 'right',
+                  },
               title: {
                 display: true,
-                text: 'Predicted world population (millions) in 2050'
+                text: 'Up Down Count'
+              },
+              plugins: {
+                colorschemes: {
+                    scheme: 'tableau.Classic20'
+                }
+              }
+            }
+        });
+
+        var top_ports = {{ statistics.top_ports.labels|tojson }};
+        new Chart(document.getElementById("top-ports"), {
+            type: 'doughnut',
+            data: {
+              labels: top_ports,
+              datasets: [
+                {
+                  label: "Host Status",
+                  data: {{ statistics.top_ports.counts }},
+                }
+              ]},
+            options: {
+                legend: {
+                    position: 'right',
+                  },
+              title: {
+                display: true,
+                text: 'Up Down Count'
               },
               plugins: {
                 colorschemes: {

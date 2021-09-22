@@ -66,6 +66,24 @@ def scan_details(scan_id):
     scan.completed_perc = round(statistics['host_count']['total'] * 100 / scan.ip_count, 2)
     scan.status = 'Completed' if scan.completed_perc == 100.0 else 'Running'
 
+    # prepare for chart.js
+    labels = []
+    counts = []
+    for pair in statistics['top_ports']:
+        labels.append('port ' + str(pair['key']))
+        counts.append(pair['doc_count'])
+    statistics['top_ports'] = {
+        'labels': labels,
+        'counts': counts
+    }
+
+    # prepare for chart.js
+    labels = ['up', 'down']
+    counts = [statistics['host_count']['up'], statistics['host_count']['total'] - statistics['host_count']['up']]
+    statistics['host_count'] = {
+        'labels': labels,
+        'counts': counts
+    }
     return render_template('scan_details.html', scan=scan, statistics=statistics)
 
 
