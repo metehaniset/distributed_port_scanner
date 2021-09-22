@@ -61,7 +61,6 @@ def scan_details(scan_id):
     scan = Scan.query.filter_by(scan_id=scan_id).first_or_404()
     # result, hit_count = find_all_with_work_id(scan_id)
     statistics = find_scan_details_on_elastics(scan_id)
-    print(statistics)
 
     scan.completed_perc = round(statistics['host_count']['total'] * 100 / scan.ip_count, 2)
     scan.status = 'Completed' if scan.completed_perc == 100.0 else 'Running'

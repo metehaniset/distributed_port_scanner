@@ -76,7 +76,7 @@
     <script>
     var host_count = {{ statistics.host_count.labels|tojson }};
         new Chart(document.getElementById("host-count"), {
-            type: 'doughnut',
+            type: 'pie',
             data: {
               labels: host_count,
               datasets: [
@@ -118,7 +118,7 @@
                   },
               title: {
                 display: true,
-                text: 'Up Down Count'
+                text: 'Most common port for scan'
               },
               plugins: {
                 colorschemes: {
