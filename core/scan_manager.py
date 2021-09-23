@@ -8,13 +8,16 @@ import time
 
 
 class ScanManager:
+    """
+    Flask web app uses this class for pushing scan orders to rabbitmq
+    """
     def __init__(self):
         # prepare queue
         self.queue = QueueHandler(host='rabbitmq')
         self.queue.bind(queue_name='distscanner_order', routing_key='work_order')
 
     def _check_port_string(self, port_string):
-        # a little format checking
+        # a little format checking for port string
         if '-' in port_string:
             port_list = port_string.split('-')
             if len(port_list) > 2:
@@ -38,7 +41,11 @@ class ScanManager:
             return None
 
         scan_id = str(uuid.uuid4())
-        host_list = ipaddress.IPv4Network(host_string)
+        try:
+            host_list = ipaddress.IPv4Network(host_string)
+        except:
+            return None
+
         work = []
         ip_count = 0
         message = {'type': 'work_order', 'scanner': scanner, 'scan_id': scan_id}
