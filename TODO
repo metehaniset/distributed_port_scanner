@@ -1,9 +1,5 @@
-TODO    add some charts(chart.js) to scan_details page
-TODO    rebuild Dockerfile and push to docker hub
-TODO    Test latest docker image on kubernetes cluster
-TODO    start preparing case report
-
 TODO    update README file
+TODO    move hostnames from code to configuration file
 TODO    implement support for nmap
 TODO    implement support for other scanners
 TODO    implement pause/cancel feature for scans (with fanout exchange)

@@ -6,7 +6,16 @@ from lib.logger import logger
 
 
 class UglyScanner:
+    """
+    This class is used for connect scanning
+    """
     def _parse_portstring(self, port_string):
+        """
+        Parses port strings
+        format 100-200
+        :param port_string: accepted formats: 100-200 or 80,443 or 80
+        :return: integer port list
+        """
         if '-' in port_string:
             plist = port_string.split('-')
             if len(plist) > 2:
@@ -33,6 +42,11 @@ class UglyScanner:
         return port_list
 
     def _check_if_open(self, param):
+        """
+
+        :param param: param['port_string'], param['host']
+        :return: adds completed_timestamp and open_ports key to param
+        """
         port_list = self._parse_portstring(param['port_string'])
         param['open_ports'] = []
         try:

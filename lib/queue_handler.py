@@ -9,6 +9,9 @@ logging.getLogger("pika").setLevel(logging.CRITICAL)
 
 
 class QueueHandler:
+    """
+    wrapper for pika
+    """
     def __init__(self, exchange_name='distscanner', exchange_type='direct', host='rabbitmq'):
         self._params = pika.ConnectionParameters(
             host=host,

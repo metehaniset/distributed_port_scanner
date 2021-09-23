@@ -7,6 +7,9 @@ LOG_PATH = "/app/"
 
 
 class FileLogger:
+    """
+    Write logs to console and file at the same time
+    """
     def __init__(self, filename, level='DEBUG'):
         if not os.path.exists(LOG_PATH):    # Log dosyasını oluştur
             os.makedirs(LOG_PATH)

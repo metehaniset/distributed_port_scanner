@@ -17,6 +17,12 @@ logging.getLogger("elasticsearch").setLevel(logging.WARNING)
 """
 
 def generate_test_data(scan_id='9666b652-d082-4d72-b26b-2c98fd696499'):
+    """
+    Generates test data on Elasticsearch.
+    Works only first run
+    :param scan_id:
+    :return:
+    """
     while True:
         try:
             elastic = Elasticsearch([{'host': 'elasticsearch', 'port': 9200}])

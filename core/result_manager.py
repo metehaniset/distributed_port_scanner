@@ -13,6 +13,9 @@ logging.getLogger("elasticsearch").setLevel(logging.WARNING)
 
 
 class ResultManager:
+    """
+    Takes scan results from queue, makes some enrichment and writes to elasticsearh
+    """
     def __init__(self):
         # prepare queue
         self.queue = QueueHandler(host='rabbitmq')
