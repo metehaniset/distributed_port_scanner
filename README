@@ -1,4 +1,2 @@
-For working with docker-compose you must add two records to your /etc/hosts file
-127.0.0.1	rabbitmq
-127.0.0.1	elasticsearch
-
+Distributed port scanner
+Works on kubernetes cluster
