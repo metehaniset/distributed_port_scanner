@@ -4,4 +4,4 @@ Works on kubernetes cluster
 default credentials admin/admin
 
 Architecture
-![Screenshot](screenshot.png)
+![Screenshot](architecture.png)
