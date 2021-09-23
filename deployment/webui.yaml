@@ -41,7 +41,7 @@ spec:
       containers:
       - name: webui
         image: x2q3m6/distributed-port-scanner:latest
-        imagePullPolicy: Always
+        # imagePullPolicy: Always
         command: ["/bin/sh"]
         args:
           - -c
