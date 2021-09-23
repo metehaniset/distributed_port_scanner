@@ -1,8 +1,8 @@
 version: "3.4"  # compose file version
 #
-#For working with docker-compose you must add following records to your /etc/hosts file
-#127.0.0.1	rabbitmq
-#127.0.0.1	elasticsearch
+# Before using build Dockerfile with command
+# docker build -t x2q3m6/distributed-port-scanner:latest .
+# Or you can pull it from public repository
 #
 services:
   rabbitmq:
